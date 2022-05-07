@@ -18,5 +18,43 @@
     <ClCompile Include="TP3-Martinez-Pugliese-Troncoso.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cPaciente.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cCentroSalud.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cReceptor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cDonante.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cFechayHoraFallecimiento.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cPaciente.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cCentroSalud.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Template.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cReceptor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cDonante.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cFechayHoraFallecimiento.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
