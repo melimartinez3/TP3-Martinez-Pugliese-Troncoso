@@ -1,5 +1,9 @@
 #include <iostream>
-#include "cPaciente.h"
+#include "cDonante.h"
+#include "cReceptor.h"
+#include "Template.h"
+
+#define TAM 50
 
 int main() {
 	// declaramos las variables dinamicas
@@ -13,7 +17,8 @@ int main() {
 	paciente1->DesasignacionCentroDeSalud(paciente1);
 	
 	
-	
+	cLista<cDonante> cLista(TAM);
+
 	// eliminamos la memoria dinamica del main
 	delete paciente1;
 	delete centrodesalud1;

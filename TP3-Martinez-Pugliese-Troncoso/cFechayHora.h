@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class cFechayHoraFallecimiento {
+class cFechayHora {
    
 private:
     int Hora;
@@ -13,11 +13,11 @@ private:
     int Segundos;
     int Dia, Mes, Anio;
 public:
-    cFechayHoraFallecimiento(int hora, int minuto, int segundo, int anio, int mes, int dia);
-    ~cFechayHoraFallecimiento();
+    cFechayHora(int hora, int minuto, int segundo, int anio, int mes, int dia);
+    ~cFechayHora();
 
     //declaramos los metodos
-    void obtenerFechayHora_Fallecimiento(cDonante* donante);
+    void ObtenerFechayHora_Ablacion(cDonante* donante);
 
     //declaramos e implemnetamos los gets
     int get_dia() {

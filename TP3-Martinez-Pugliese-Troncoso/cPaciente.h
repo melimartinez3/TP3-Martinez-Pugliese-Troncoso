@@ -21,5 +21,8 @@ public:
 	bool AsignacionCentroDeSalud(cPaciente* paciente, cCentroSalud* centrosalud);
 	void DesasignacionCentroDeSalud(cPaciente* paciente);
 	virtual ~cPaciente();
+	string Get_TipoSangre()
+	{
+		return this->TipoSangre;
+	}
 };
-

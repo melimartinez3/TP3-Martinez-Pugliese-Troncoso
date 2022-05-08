@@ -141,7 +141,8 @@
   <ItemGroup>
     <ClCompile Include="cCentroSalud.cpp" />
     <ClCompile Include="cDonante.cpp" />
-    <ClCompile Include="cFechayHoraFallecimiento.cpp" />
+    <ClCompile Include="cFechayHora.cpp" />
+    <ClCompile Include="cINCUCAI.cpp" />
     <ClCompile Include="cPaciente.cpp" />
     <ClCompile Include="cReceptor.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -150,7 +151,8 @@
   <ItemGroup>
     <ClInclude Include="cCentroSalud.h" />
     <ClInclude Include="cDonante.h" />
-    <ClInclude Include="cFechayHoraFallecimiento.h" />
+    <ClInclude Include="cFechayHora.h" />
+    <ClInclude Include="cINCUCAI.h" />
     <ClInclude Include="cPaciente.h" />
     <ClInclude Include="cReceptor.h" />
     <ClInclude Include="Template.h" />

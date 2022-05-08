@@ -15,7 +15,7 @@ private:
     string Patologia;
 public:
     cReceptor(eOrgano _organo, string _fecha_agregado, bool _prioridad, bool _estado, string _patologia, string _nombre, string _fechanac, char _sexo, string _telefono, string _tiposangre);
-
+    ~cReceptor();
 
 };
 

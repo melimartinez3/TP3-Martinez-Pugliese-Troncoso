@@ -33,7 +33,10 @@
     <ClCompile Include="cDonante.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cFechayHoraFallecimiento.cpp">
+    <ClCompile Include="cFechayHora.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cINCUCAI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,7 +56,10 @@
     <ClInclude Include="cDonante.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cFechayHoraFallecimiento.h">
+    <ClInclude Include="cFechayHora.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cINCUCAI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

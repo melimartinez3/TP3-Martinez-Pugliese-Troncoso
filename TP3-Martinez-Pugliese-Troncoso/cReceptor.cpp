@@ -8,3 +8,5 @@ cReceptor::cReceptor(eOrgano _organo, string _fecha_agregado, bool _prioridad, b
 	this->Estado = _estado;
 	this->Patologia = _patologia;
 }
+
+cReceptor::~cReceptor() {};
