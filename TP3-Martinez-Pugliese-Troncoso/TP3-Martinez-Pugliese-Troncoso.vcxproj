@@ -143,6 +143,7 @@
     <ClCompile Include="cDonante.cpp" />
     <ClCompile Include="cFechayHora.cpp" />
     <ClCompile Include="cINCUCAI.cpp" />
+    <ClCompile Include="cOrgano.cpp" />
     <ClCompile Include="cPaciente.cpp" />
     <ClCompile Include="cReceptor.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="cDonante.h" />
     <ClInclude Include="cFechayHora.h" />
     <ClInclude Include="cINCUCAI.h" />
+    <ClInclude Include="cOrgano.h" />
     <ClInclude Include="cPaciente.h" />
     <ClInclude Include="cReceptor.h" />
     <ClInclude Include="Template.h" />

@@ -8,27 +8,37 @@ cINCUCAI::cINCUCAI(cLista<cDonante>* _cListaDonantes, cLista<cReceptor>* _cLista
 	cListaCentrosSalud = _cListaCentrosSalud;
 }
 
-void cINCUCAI::RecibirPaciente(cPaciente* paciente) //Pasarle por parametro las dos listas
+void cINCUCAI::RecibirPaciente(cPaciente* paciente, cLista<cDonante>* _cListaDonantes, cLista<cReceptor>* _cListaReceptores) //Pasarle por parametro las dos listas
 {
 	cDonante* donante_aux = dynamic_cast<cDonante*>(paciente);
 	if (donante_aux == NULL)
 	{
 		//si es igual a NULL, nuestro paciente es un receptor
-		this->AgregarPaciente(paciente, 0); 
+		this->AgregarPaciente(paciente, 0, _cListaDonantes, _cListaReceptores);
 		return;
 	}
 
 	//si el paciente es un donante:
-	this->AgregarPaciente(paciente, 1); 
+	this->AgregarPaciente(paciente, 1, _cListaDonantes, _cListaReceptores);
 	
 }
 
-void cINCUCAI::AgregarPaciente(cPaciente* paciente, int m)
+void cINCUCAI::AgregarPaciente(cPaciente* paciente, int m, cLista<cDonante>* _cListaDonantes, cLista<cReceptor>* _cListaReceptores)
 {
+	//si m es 0 es un receptor y si me es 1 es un donante
 	if (m == 0)
 	{
+		/*//CONSULTAR NO SABEMOS COMO SACAR LOS DTAOS DEL RECEPTOR QUE ESTA IGUALADO A PACIENTE DESDE EL MAIN
+		//cReceptor*receptor=new cReceptor()
 		//tenemos que agregar a la lista de receptores
-		return;
+		int ca = _cListaReceptores->get_cant_actual();
+		int tamtotal = _cListaReceptores->get_tamaño_total();
+		if (ca < tamtotal) {
+			if (_cListaReceptores->lista[ca] == NULL)
+				//_cListaReceptores->lista[ca] = 
+		}
+		return; */
+		
 	}
 
 	//agregar a la lista de donantes
@@ -37,12 +47,18 @@ void cINCUCAI::AgregarPaciente(cPaciente* paciente, int m)
 
 cLista<cReceptor>* cINCUCAI::BuscaPosiblesReceptores(cLista<cReceptor>* lista_receptores, cDonante* donante)
 {
-	cLista<cReceptor>* aux1;
-	string TipoSangreBuscar = donante->
-	lista_receptores->Filtrar();
+	/*cLista<cReceptor>* aux1;
+	
+	string TipoSangreBuscar = donante->Get_TipoSangre();
+	aux1=lista_receptores->Filtrar(TipoSangreBuscar);
+	int n = 
+	for(int i=0;i<)*/
+	
 }
 
 cINCUCAI::~cINCUCAI()
 {
-	//HACER LOS DELETES DE LOS PUNTEROS
+	delete cListaDonantes;
+	delete cListaReceptores;
+	delete cListaCentrosSalud;
 }

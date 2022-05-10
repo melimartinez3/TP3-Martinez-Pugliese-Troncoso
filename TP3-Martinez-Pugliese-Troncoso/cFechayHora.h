@@ -1,5 +1,6 @@
 #pragma once
-#include "cDonante.h"
+class cDonante;
+#include <time.h>
 #define _CRT_SECURE_NOWARNINGS
 
 
@@ -8,16 +9,15 @@ using namespace std;
 class cFechayHora {
    
 private:
-    int Hora;
-    int Minutos;
-    int Segundos;
+    time_t hora;
     int Dia, Mes, Anio;
 public:
-    cFechayHora(int hora, int minuto, int segundo, int anio, int mes, int dia);
+    cFechayHora(time_t _hora, int anio, int mes, int dia);
     ~cFechayHora();
 
     //declaramos los metodos
-    void ObtenerFechayHora_Ablacion(cDonante* donante);
+    void ObtenerFechayHora_Apertura(cDonante* donante, int hora, int min, int segundos, int dia, int mes, int anio);
+
 
     //declaramos e implemnetamos los gets
     int get_dia() {
@@ -29,14 +29,8 @@ public:
     int get_anio() {
         return this->Anio;
     };
-    int get_hora() {
-        return this->Hora;
-    };
-    int get_min() {
-        return this->Minutos;
-    };
-    int get_segundos() {
-        return this->Segundos;
+    time_t get_hora() {
+        return this->hora;
     };
 };
 

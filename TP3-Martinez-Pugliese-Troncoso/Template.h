@@ -12,6 +12,13 @@ private:
 	int TamTotal;
 
 public:
+	friend class cINCUCAI;
+	int get_cant_actual() {
+		return this->CantActual;
+	}
+	int get_tamaño_total() {
+		return this->TamTotal;
+	}
 	// constructor de la lista template
 	cLista(int _tamtotal) {
 		
@@ -82,9 +89,9 @@ public:
 	/// </summary>
 	/// <param name="parametro"></param>
 	/// <returns></returns>
-	T* Filtrar(string parametro)
+	cLista<T>* Filtrar(string parametro)
 	{
-		T* sublista_aux = new T[TamTotal];
+		cLista<T>* sublista_aux = new T[TamTotal];
 		int cont = 0;
 
 		for (int i = 0; i < CantActual; i++) //recorremos toda la lista
