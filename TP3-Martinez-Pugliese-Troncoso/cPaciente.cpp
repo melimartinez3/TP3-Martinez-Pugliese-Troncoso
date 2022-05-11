@@ -1,4 +1,5 @@
 #include "cPaciente.h"
+#include "cCentroSalud.h"
 
 using namespace std;
 // constructor de cPaciente

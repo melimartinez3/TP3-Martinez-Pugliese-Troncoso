@@ -1,7 +1,7 @@
 #include <iostream>
 #include "cDonante.h"
 #include "cReceptor.h"
-#include "Template.h"
+#include "cTemplate.h"
 #include "cINCUCAI.h"
 
 #define TAM 50

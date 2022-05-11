@@ -21,7 +21,7 @@ public:
 	}
 	// constructor de la lista template
 	template <class T> 
-	cLista<T>:: cLista(int _tamtotal) {
+	cLista(int _tamtotal) {
 		
 		this->CantActual = 0;
 		this->TamTotal = _tamtotal;

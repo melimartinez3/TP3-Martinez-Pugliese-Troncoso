@@ -6,12 +6,24 @@ cCentroSalud::cCentroSalud(string _nombre, string _direcc, string _partido, stri
 	this->Partido = _partido;
 	this->Provincia = _provincia;
 	this->Telefono = _telefono;
-    // inicializar en null a la lista vehiculos
+	
+	listavehiculos = NULL;
+
 }
+bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, eVehiculos vehiculo) {
+	int cont = 0;
+	while (cont < 10) {
+		//if(donante->listadeorganos-> == organo) CONSULTAR
+	}
+
+}
+
+
+
 
 // destructor de cCentroSalud
 cCentroSalud::~cCentroSalud() {
 	
-	//if(listavehiculos != NULL)
-	//delete lista vehiculos
+	if (listavehiculos != NULL)
+		delete listavehiculos;
 }

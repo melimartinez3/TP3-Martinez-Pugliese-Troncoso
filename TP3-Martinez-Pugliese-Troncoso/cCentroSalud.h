@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "cVehiculo.h"
 #include "cTemplate.h"
+#include "cDonante.h"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ private:
 	
 public:
 	cCentroSalud(string _nombre, string _direcc, string _partido, string _provincia, string _telefono);
-	bool AsignacionVehiculo();
+	bool AsignacionVehiculo(cDonante* donante, eOrgano organo, eVehiculos vehiculo);
 	eVehiculos CalculoDistancia();
 	bool DesasignacionVehiculo();
 

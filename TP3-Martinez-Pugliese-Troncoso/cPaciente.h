@@ -2,7 +2,10 @@
 #include<stdio.h>
 #include<string>
 #include <stdlib.h>
-#include "cCentroSalud.h"
+class cCentroSalud;
+
+enum Organo { Corazon = 1, Higado, Pancreas, Huesos, Rinion, Pulmones, Intestino, Piel, Corneas };
+typedef Organo eOrgano;
 
 using namespace std;
 

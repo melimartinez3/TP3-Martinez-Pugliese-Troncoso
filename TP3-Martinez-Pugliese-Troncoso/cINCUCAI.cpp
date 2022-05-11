@@ -58,12 +58,14 @@ void cINCUCAI::AgregarPaciente(cPaciente* paciente, int m, cLista<cDonante>* _cL
 
 cLista<cReceptor>* cINCUCAI::BuscaPosiblesReceptores(cLista<cReceptor>* lista_receptores, cDonante* donante)
 {
-	/*cLista<cReceptor>* aux1;
-	
+	cLista<cReceptor>* aux1;
+	int i = 0;
 	string TipoSangreBuscar = donante->Get_TipoSangre();
 	aux1=lista_receptores->Filtrar(TipoSangreBuscar);
-	int n = 
-	for(int i=0;i<)*/
+	//int n = 
+	//for(int i=0;i<)
+	if (aux1->lista[i]->get_Organo()==)
+
 	
 }
 

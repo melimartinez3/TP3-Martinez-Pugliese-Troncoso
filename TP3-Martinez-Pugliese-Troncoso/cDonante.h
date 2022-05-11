@@ -1,8 +1,8 @@
 #pragma once
 #include "cPaciente.h"
 #include "cFechayHora.h"
-#include "cOrgano.h"
 #include "cTemplate.h"
+class cOrgano;
 
 class cDonante :
     protected cPaciente
@@ -15,6 +15,7 @@ private:
 public:
     friend class cFechayHora;
     friend class cINCUCAI;
+    friend class cCentroSalud;
     cDonante(string _nombre, string _fechanac, char _sexo, string _telefono, string _tiposangre);
     ~cDonante();
 };

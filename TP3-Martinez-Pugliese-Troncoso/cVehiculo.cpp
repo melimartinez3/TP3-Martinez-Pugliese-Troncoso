@@ -12,7 +12,7 @@ void cVehiculo::SacarAmbulancia()
 		this->cant_ambulancias = this->cant_ambulancias - 1;
 	}
 	
-	//throw new exception("\nNo hay mas ambulancias disponibles");
+	//throw new exception ("\nNo hay mas ambulancias disponibles");
 }
 
 void cVehiculo::AgregarHelicoptero()
