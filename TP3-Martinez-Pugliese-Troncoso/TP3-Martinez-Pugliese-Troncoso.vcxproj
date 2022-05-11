@@ -143,9 +143,11 @@
     <ClCompile Include="cDonante.cpp" />
     <ClCompile Include="cFechayHora.cpp" />
     <ClCompile Include="cINCUCAI.cpp" />
+    <ClCompile Include="cListaReceptores.cpp" />
     <ClCompile Include="cOrgano.cpp" />
     <ClCompile Include="cPaciente.cpp" />
     <ClCompile Include="cReceptor.cpp" />
+    <ClCompile Include="cVehiculo.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TP3-Martinez-Pugliese-Troncoso.cpp" />
   </ItemGroup>
@@ -154,10 +156,12 @@
     <ClInclude Include="cDonante.h" />
     <ClInclude Include="cFechayHora.h" />
     <ClInclude Include="cINCUCAI.h" />
+    <ClInclude Include="cListaReceptores.h" />
     <ClInclude Include="cOrgano.h" />
     <ClInclude Include="cPaciente.h" />
     <ClInclude Include="cReceptor.h" />
-    <ClInclude Include="Template.h" />
+    <ClInclude Include="cTemplate.h" />
+    <ClInclude Include="cVehiculo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

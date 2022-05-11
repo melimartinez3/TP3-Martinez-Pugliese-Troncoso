@@ -2,7 +2,7 @@
 #include "cPaciente.h"
 #include "cFechayHora.h"
 #include "cOrgano.h"
-#include "Template.h"
+#include "cTemplate.h"
 
 class cDonante :
     protected cPaciente

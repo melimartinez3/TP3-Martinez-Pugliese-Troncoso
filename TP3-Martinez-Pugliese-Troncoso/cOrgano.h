@@ -8,6 +8,7 @@ class cOrgano
 private: 
 	string organo;
 	cFechayHora* fechayhora_extraccion;
+	string vehiculo;
 
 public: 
 	cOrgano(string _organo, cFechayHora* _fechayhora_extraccion);

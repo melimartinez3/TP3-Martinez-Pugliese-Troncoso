@@ -11,5 +11,7 @@ cCentroSalud::cCentroSalud(string _nombre, string _direcc, string _partido, stri
 
 // destructor de cCentroSalud
 cCentroSalud::~cCentroSalud() {
+	
+	//if(listavehiculos != NULL)
 	//delete lista vehiculos
 }

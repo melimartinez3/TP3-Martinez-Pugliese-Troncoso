@@ -28,20 +28,31 @@ void cINCUCAI::AgregarPaciente(cPaciente* paciente, int m, cLista<cDonante>* _cL
 	//si m es 0 es un receptor y si me es 1 es un donante
 	if (m == 0)
 	{
-		/*//CONSULTAR NO SABEMOS COMO SACAR LOS DTAOS DEL RECEPTOR QUE ESTA IGUALADO A PACIENTE DESDE EL MAIN
-		//cReceptor*receptor=new cReceptor()
-		//tenemos que agregar a la lista de receptores
+		cReceptor* receptor_aux = dynamic_cast<cReceptor*>(paciente);
+
 		int ca = _cListaReceptores->get_cant_actual();
 		int tamtotal = _cListaReceptores->get_tamaño_total();
 		if (ca < tamtotal) {
 			if (_cListaReceptores->lista[ca] == NULL)
-				//_cListaReceptores->lista[ca] = 
+				_cListaReceptores->lista[ca] = receptor_aux;
 		}
-		return; */
-		
-	}
+		return; 
 
-	//agregar a la lista de donantes
+	}
+	else if (m == 1)
+	{
+		//agregar a la lista de donantes
+		cDonante* donante_aux = dynamic_cast<cDonante*>(paciente);
+		int ca = _cListaDonantes->get_cant_actual();
+		int tamtotal = _cListaDonantes->get_tamaño_total();
+		if (ca < tamtotal) {
+			if (_cListaDonantes->lista[ca] == NULL)
+				_cListaDonantes->lista[ca] = donante_aux;
+		}
+		return;
+	}
+	else
+		throw new exception("\nNo se pudo agregar a ninguna de las dos listas (Donantes y Receptores)");
 	
 }
 
@@ -56,9 +67,16 @@ cLista<cReceptor>* cINCUCAI::BuscaPosiblesReceptores(cLista<cReceptor>* lista_re
 	
 }
 
+
+
 cINCUCAI::~cINCUCAI()
 {
-	delete cListaDonantes;
-	delete cListaReceptores;
-	delete cListaCentrosSalud;
+	if(cListaDonantes != NULL)
+		delete cListaDonantes;
+
+	if (cListaReceptores != NULL)
+		delete cListaReceptores;
+
+	if (cListaCentrosSalud != NULL)
+		delete cListaCentrosSalud;
 }

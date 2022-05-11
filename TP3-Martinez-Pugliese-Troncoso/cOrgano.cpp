@@ -14,6 +14,7 @@ cOrgano::cOrgano(string _organo, cFechayHora* _fechayhora_extraccion) {
 //destructor de cOrgano
 cOrgano::~cOrgano() {
 
-	delete fechayhora_extraccion;
+	if(fechayhora_extraccion !=NULL)
+		delete fechayhora_extraccion;
 
 }

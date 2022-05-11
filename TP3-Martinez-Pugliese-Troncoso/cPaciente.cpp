@@ -37,5 +37,7 @@ void cPaciente::DesasignacionCentroDeSalud(cPaciente* paciente) {
 
 // destructor de cPaciente
 cPaciente::~cPaciente() {
-	delete CentroSalud;
+	
+	if(CentroSalud !=NULL)
+		delete CentroSalud;
 };

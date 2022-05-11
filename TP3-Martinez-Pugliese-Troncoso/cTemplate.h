@@ -20,7 +20,8 @@ public:
 		return this->TamTotal;
 	}
 	// constructor de la lista template
-	cLista(int _tamtotal) {
+	template <class T> 
+	cLista<T>:: cLista(int _tamtotal) {
 		
 		this->CantActual = 0;
 		this->TamTotal = _tamtotal;
@@ -29,6 +30,9 @@ public:
 			lista[i] = NULL;
 		}
 	}
+
+
+
 	/// <summary>
 	/// Agregamos a la lista un nuevo elemento
 	/// </summary>

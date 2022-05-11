@@ -8,6 +8,10 @@ cDonante::cDonante(string _nombre, string _fechanac, char _sexo, string _telefon
 }
 
 cDonante::~cDonante() {
-	delete FechaHoraFallecimiento;
-	delete FechaHoraApertura;
+	
+	if(FechaHoraFallecimiento != NULL)
+		delete FechaHoraFallecimiento;
+	
+	if(FechaHoraApertura != NULL)
+		delete FechaHoraApertura;
 };

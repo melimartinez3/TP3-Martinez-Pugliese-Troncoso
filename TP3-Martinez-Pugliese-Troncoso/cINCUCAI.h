@@ -1,7 +1,7 @@
 #pragma once
 #include "cDonante.h"
 #include "cReceptor.h"
-#include "Template.h"
+#include "cTemplate.h"
 class cINCUCAI
 {
 private:

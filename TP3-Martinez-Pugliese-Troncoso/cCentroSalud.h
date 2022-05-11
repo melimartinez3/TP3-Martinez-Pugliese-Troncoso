@@ -2,6 +2,8 @@
 #include<stdio.h>
 #include<string>
 #include <stdlib.h>
+#include "cVehiculo.h"
+#include "cTemplate.h"
 
 using namespace std;
 
@@ -16,7 +18,8 @@ private:
 	string Partido;
 	string Provincia;
 	string Telefono;
-	//lista  vehiculos disponibles
+	cLista<cVehiculo>* listavehiculos;
+	
 public:
 	cCentroSalud(string _nombre, string _direcc, string _partido, string _provincia, string _telefono);
 	bool AsignacionVehiculo();
