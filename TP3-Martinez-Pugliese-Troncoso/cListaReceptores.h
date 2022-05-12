@@ -1,14 +1,14 @@
 #pragma once
 #include "cTemplate.h"
 #include "cOrgano.h"
-
+#define TAM 50
 
 class cListaReceptores :
-    private cLista<int>
+    private cLista<cReceptor>
 {
 public:
     cListaReceptores(int tamtotal);
-    cListaReceptores* FiltrarNuevaLista(string tiposangre, cLista<cOrgano>* _lista_organos);
+    cListaReceptores* FiltrarNuevaLista(cLista<cOrgano>* _lista_organos);
     ~cListaReceptores();
 };
 

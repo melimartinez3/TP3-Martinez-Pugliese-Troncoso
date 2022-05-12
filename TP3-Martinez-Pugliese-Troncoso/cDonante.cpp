@@ -8,6 +8,18 @@ cDonante::cDonante(string _nombre, string _fechanac, char _sexo, string _telefon
     listadeorganos = NULL;
 }
 
+void cDonante::ListaDeOrganosADonar() {
+
+	int cant_organos = rand() % 10;
+	cLista<cOrgano>* listaorganos = new cLista<cOrgano>(cant_organos);
+	int n = 0;
+	for (int i = 0; i < cant_organos; i++) {
+		
+		listaorganos->lista[i]=new cOrgano()
+	}
+
+}
+
 cDonante::~cDonante() {
 	
 	if(FechaHoraFallecimiento != NULL)

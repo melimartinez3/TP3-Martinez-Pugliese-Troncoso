@@ -6,23 +6,32 @@ using namespace std;
 
 template <class T>
 class cLista {
-private: 
+private:
 	T** lista;
 	int CantActual;
 	int TamTotal;
 
 public:
 	friend class cINCUCAI;
-	int get_cant_actual() {
+	friend class cDonante;
+	cLista(int _tamtotal);
+	void operator+(T* nuevo);
+	int Buscar(string busqueda);
+	void operator-();
+	cLista<T>* Filtrar(string parametro);
+	~cLista()
+
+
+		int get_cant_actual() {
 		return this->CantActual;
 	}
 	int get_tamaño_total() {
 		return this->TamTotal;
 	}
 	// constructor de la lista template
-	template <class T> 
-	cLista(int _tamtotal) {
-		
+	template <class T>
+	cLista<T>::cLista(int _tamtotal) {
+
 		this->CantActual = 0;
 		this->TamTotal = _tamtotal;
 		lista = new T * [TamTotal];
@@ -31,13 +40,14 @@ public:
 		}
 	}
 
-
+};
 
 	/// <summary>
 	/// Agregamos a la lista un nuevo elemento
 	/// </summary>
 	/// <param name="nuevo"></param>
-	void Agregar(T* nuevo) {
+	template <class T>
+	void cLista<T>::operator+(T* nuevo) {
 		
 		if (CantActual < TamTotal) {// verificamos que la cantidad actual sea menor a la maxima
 			lista[CantActual++] = nuevo;// lo agregamos a la lista
@@ -50,7 +60,9 @@ public:
 	/// </summary>
 	/// <param name="busqueda"></param>
 	/// <returns></returns>
-	int Buscar(string busqueda) {
+
+	template <class T>
+	int	cLista<T>::Buscar(string busqueda) {
 
 		int i;
 
@@ -70,7 +82,8 @@ public:
 	/// <summary>
 	/// Eliminamos un elemento de la lista
 	/// </summary>
-	void Eliminar() 
+	template <class T>
+	void cLista<T>::operator-() 
 	{
 		int pos = Buscar(busqueda);
 
@@ -93,7 +106,8 @@ public:
 	/// </summary>
 	/// <param name="parametro"></param>
 	/// <returns></returns>
-	cLista<T>* Filtrar(string parametro)
+	template <class T>
+	cLista<T>* cLista<T>::Filtrar(string parametro)
 	{
 		cLista<T>* sublista_aux = new T[TamTotal];
 		int cont = 0;
@@ -119,7 +133,8 @@ public:
 	}
 
 	// destructor de la lista template
-	~cLista() {
+	template <class T>
+	cLista<T>::~cLista() {
 		if(lista!=NULL){
 			for (int i = 0; i < CantActual; i++) {
 				if (lista[i] != NULL) {
@@ -129,4 +144,3 @@ public:
 			delete[] lista;
 		}
 	}
-};

@@ -7,6 +7,7 @@
 #define TAM 50
 
 int main() {
+	srand(time(NULL));
 	// declaramos las variables dinamicas
 	cPaciente* paciente1 = new cPaciente("Pepe Argento", "20/10/1986", 'M', "1124861020", "B+");
 	cCentroSalud* centrodesalud1 = new cCentroSalud("centrito4", "Juramento 2556", "Buenos Aires", "Buenos Aires", "46583226");
