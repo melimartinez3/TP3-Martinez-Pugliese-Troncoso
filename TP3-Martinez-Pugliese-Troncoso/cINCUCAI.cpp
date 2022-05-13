@@ -97,14 +97,16 @@ cLista<cReceptor>* cINCUCAI::ReceptoresPorOrgano(eOrgano _organo, cLista<cRecept
 		}
 	}
 
+	OrdenarLista(aux);
 
+	return aux;
 
 }
 
 void cINCUCAI::OrdenarLista(cLista<cReceptor>* _lista_receptores)
 {
 	int n = _lista_receptores->get_cant_actual();
-	int i, p, cont;
+	int i, p, k, cont;
 
 	p = 0;
 
@@ -123,18 +125,31 @@ void cINCUCAI::OrdenarLista(cLista<cReceptor>* _lista_receptores)
 	aux_prioridad = aux_prioridad->Resize(aux_prioridad, p);
 	OrdenamientoPorFecha(aux_prioridad, p);
 
-	p = 0;
+	k = 0;
 
 	for (i = 0; i < n; i++)
 	{
 		if (!_lista_receptores->lista[i]->get_Prioridad())
 		{
-			aux_sinprioridad->lista[p] = _lista_receptores->lista[i];
-			p++;
+			aux_sinprioridad->lista[k] = _lista_receptores->lista[i];
+			k++;
 		}
 	}
-	aux_sinprioridad = aux_sinprioridad->Resize(aux_sinprioridad, p);
-	OrdenamientoPorFecha(aux_sinprioridad, p);
+	aux_sinprioridad = aux_sinprioridad->Resize(aux_sinprioridad, k);
+	OrdenamientoPorFecha(aux_sinprioridad, k);
+
+
+	cLista<cReceptor>* aux_total = new cLista<cReceptor>(n);
+
+	for (i = 0; i < p; i++)
+	{
+		aux_total->lista[i] = aux_prioridad->lista[i];
+	}
+
+	for (i = p; i < n; i++)
+	{
+		aux_total->lista[i] = aux_sinprioridad->lista[i];
+	}
 
 
 
