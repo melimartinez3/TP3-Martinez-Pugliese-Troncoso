@@ -1,7 +1,6 @@
 #pragma once
 #include "cDonante.h"
 #include "cReceptor.h"
-#include "cListaReceptores.h"
 class cINCUCAI
 {
 private:
@@ -16,6 +15,7 @@ public:
 	~cINCUCAI();
 	void RecibirPaciente(cPaciente* paciente, cLista<cDonante>* _cListaDonantes, cLista<cReceptor>* _cListaReceptores); 
 	void AgregarPaciente(cPaciente* paciente, int m, cLista<cDonante>* _cListaDonantes, cLista<cReceptor>* _cListaReceptores);
-	cLista<cReceptor>* BuscaPosiblesReceptores(cLista<cReceptor>* lista_receptores, cDonante* donante);
+	cLista<cReceptor>* BuscaPosiblesReceptores(cDonante* donante);
+	void EleccionReceptor(cDonante* donante);
 };
 

@@ -42,9 +42,6 @@
     <ClCompile Include="cOrgano.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cListaReceptores.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cVehiculo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -72,9 +69,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cOrgano.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cListaReceptores.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cVehiculo.h">

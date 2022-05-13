@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<string>
 #include <stdlib.h>
+
 using namespace std;
 
 template <class T>
@@ -14,6 +15,7 @@ private:
 public:
 	friend class cINCUCAI;
 	friend class cDonante;
+
 	cLista(int _tamtotal);
 	void operator+(T* nuevo);
 	int Buscar(string busqueda);
@@ -28,19 +30,24 @@ public:
 	int get_tamanio_total() {
 		return this->TamTotal;
 	}
-	// constructor de la lista template
-	template <class T>
-	cLista<T>::cLista(int _tamtotal) {
-
-		this->CantActual = 0;
-		this->TamTotal = _tamtotal;
-		lista = new T * [TamTotal];
-		for (int i = 0; i < TamTotal; i++) {
-			lista[i] = NULL;
-		}
+	void set_CantActual(int cantactual) {
+		this->CantActual = cantactual;
 	}
-
+	
 };
+
+
+// constructor de la lista template
+template <class T>
+cLista<T>::cLista(int _tamtotal) {
+
+	this->CantActual = 0;
+	this->TamTotal = _tamtotal;
+	lista = new T * [TamTotal];
+	for (int i = 0; i < TamTotal; i++) {
+		lista[i] = NULL;
+	}
+}
 
 	/// <summary>
 	/// Agregamos a la lista un nuevo elemento
@@ -55,12 +62,12 @@ public:
 		else
 			throw new exception("\nNo se puede agregar a la lista");
 	}
+
 	/// <summary>
 	/// Buscamos un elemento de la lista y retornamos su posicion
 	/// </summary>
 	/// <param name="busqueda"></param>
 	/// <returns></returns>
-
 	template <class T>
 	int	cLista<T>::Buscar(string busqueda) {
 

@@ -12,12 +12,14 @@ private:
     time_t hora;
     int Dia, Mes, Anio;
 public:
+
     cFechayHora(time_t _hora, int anio, int mes, int dia);
     ~cFechayHora();
 
     //declaramos los metodos
-    void ObtenerFechayHora_Apertura(cDonante* donante, int hora, int min, int segundos, int dia, int mes, int anio);
+    cFechayHora* ObtenerFechayHora(int hora, int min, int segundos, int dia, int mes, int anio);
     cFechayHora* ObtenerFechayHora_Extraccion(cDonante* donante, int n);
+
 
     //declaramos e implemnetamos los gets
     int get_dia() {

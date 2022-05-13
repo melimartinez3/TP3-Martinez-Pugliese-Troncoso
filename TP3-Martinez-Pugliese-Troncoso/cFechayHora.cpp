@@ -8,7 +8,7 @@ cFechayHora::cFechayHora(time_t _hora, int anio, int mes, int dia) {
 	this->Dia = dia;
 }
 
-void cFechayHora:: ObtenerFechayHora_Apertura(cDonante* donante,int hora, int min,int segundos, int dia, int mes,int anio)
+cFechayHora* cFechayHora:: ObtenerFechayHora(int hora, int min,int segundos, int dia, int mes,int anio)
 {
 	struct tm when = { 0 };
 	when.tm_hour = hora;
@@ -18,9 +18,10 @@ void cFechayHora:: ObtenerFechayHora_Apertura(cDonante* donante,int hora, int mi
 	time_t hora_t;
 	hora_t = mktime(&when);//convertimos los datos de la hora pasada por parametros en int a time_t
 
-	cFechayHora* fecha_hora_apertura=new cFechayHora(hora_t,dia,mes,anio); //inicializamos una variable de fecha y hora con los datos pasados como parametro
-	donante->FechaHoraApertura = fecha_hora_apertura; //se lo asignamos al atributo del donante 
+	cFechayHora* fecha_hora=new cFechayHora(hora_t,dia,mes,anio); //inicializamos una variable de fecha y hora con los datos pasados como parametro
+	return fecha_hora;
 }
+
 cFechayHora* cFechayHora::ObtenerFechayHora_Extraccion(cDonante* donante, int n) {
 	time_t segundos_agregar = (time_t)n * 60;
 	cFechayHora* aux = new cFechayHora(donante->FechaHoraApertura->get_hora()+segundos_agregar, donante->FechaHoraApertura->get_anio(), donante->FechaHoraApertura->get_mes(), donante->FechaHoraApertura->get_dia());

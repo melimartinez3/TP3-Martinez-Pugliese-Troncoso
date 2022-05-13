@@ -1,6 +1,4 @@
 #include <iostream>
-#include "cDonante.h"
-#include "cReceptor.h"
 #include "cTemplate.h"
 #include "cINCUCAI.h"
 

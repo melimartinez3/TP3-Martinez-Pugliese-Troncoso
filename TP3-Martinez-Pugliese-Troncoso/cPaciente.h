@@ -2,6 +2,10 @@
 #include<stdio.h>
 #include<string>
 #include <stdlib.h>
+#include"cFechayHora.h"
+#include "cOrgano.h"
+#include "cTemplate.h"
+
 class cCentroSalud;
 
 enum Organo { Corazon = 1, Higado, Pancreas, Huesos, Rinion, Pulmones, Intestino, Piel, Corneas };
