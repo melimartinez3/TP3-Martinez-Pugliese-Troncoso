@@ -58,9 +58,9 @@ void cINCUCAI::AgregarPaciente(cPaciente* paciente, int m, cLista<cDonante>* _cL
 
 cLista<cReceptor>* cINCUCAI::BuscaPosiblesReceptores(cDonante* donante)
 {
-	cLista<cReceptor>* aux1;
+	cLista<cReceptor>* aux1;/*
 	string TipoSangreBuscar = donante->Get_TipoSangre();
-	aux1=cListaReceptor->Filtrar(TipoSangreBuscar);
+	aux1=cListaReceptor->Filtrar(TipoSangreBuscar);*/
 	
 	cLista<cReceptor>* sublista_aux = new cLista<cReceptor>(50);// ponemos 50 porque es la cantidad maxima de pacientes que puede tener (define del main)
 	int cont;

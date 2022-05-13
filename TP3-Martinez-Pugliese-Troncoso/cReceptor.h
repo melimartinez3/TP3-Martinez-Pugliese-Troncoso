@@ -19,7 +19,7 @@ public:
     }
    
     void AsignacionFechaLLegda(cReceptor* receptor, int hora, int min, int segundos, int dia, int mes, int anio);
-    cReceptor* VerificarPrioridad(cLista<cReceptor>* listareceptores);
+  
     
     // destructor de cReceptor
     ~cReceptor();

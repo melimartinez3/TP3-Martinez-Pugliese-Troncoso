@@ -26,18 +26,6 @@ void cReceptor::AsignacionFechaLLegda(cReceptor* receptor,int hora,int min, int 
 
 }
 
-/// <summary>
-/// chequeamos la prioridad de los receptores
-/// </summary>
-/// <param name="listareceptores"></param>
-/// <returns></returns>
-cReceptor* VerificarPrioridad(cLista<cReceptor>* listareceptores) {
-	int n=
-	
-	for()
-
-
-}
 
 
 cReceptor::~cReceptor() {};

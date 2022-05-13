@@ -15,6 +15,7 @@ private:
 public:
 	friend class cINCUCAI;
 	friend class cDonante;
+	friend class cReceptor;
 
 	cLista(int _tamtotal);
 	void operator+(T* nuevo);
