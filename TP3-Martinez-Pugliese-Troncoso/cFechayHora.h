@@ -17,7 +17,7 @@ public:
 
     //declaramos los metodos
     void ObtenerFechayHora_Apertura(cDonante* donante, int hora, int min, int segundos, int dia, int mes, int anio);
-
+    cFechayHora* ObtenerFechayHora_Extraccion(cDonante* donante, int n);
 
     //declaramos e implemnetamos los gets
     int get_dia() {

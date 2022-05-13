@@ -5,20 +5,23 @@
 cListaReceptores::cListaReceptores(int tamtotal):cLista<cReceptor>(tamtotal)
 {
 }
-
-cListaReceptores* cListaReceptores::FiltrarNuevaLista(cLista<cOrgano>* _lista_organos) {
+/*
+* cLista<cReceptor>* cListaReceptores::FiltrarNuevaLista(cLista<cOrgano>* _lista_organos,cLista<cReceptor>* listareceptores) {
 
 	cListaReceptores* sublista_aux = new cListaReceptores(TAM);
 	int cont = 0;
-
+	int j = 0;
 	for (int i = 0; i < TAM; i++) //recorremos toda la lista
 	{
-		if ([i] == parametro) //si encontramos al elemento buscado
-		{
-			sublista_aux[i] = lista[i]; //igualamos el elemento[i] de la sublista auxiliar al elemento[i] de la lista original
-			cont++; //sumamos 1 al contador 
-		}
+		for (j = 0; j < _lista_organos->get_cant_actual(); j++) {
+			if ([i] == parametro) //si encontramos al elemento buscado
+			{
+				sublista_aux[i] = lista[i]; //igualamos el elemento[i] de la sublista auxiliar al elemento[i] de la lista original
+				cont++; //sumamos 1 al contador 
+			}
 
+		}
+		
 	}
 
 	T* sublista = new T[cont]; //creamos una sublista del tamaño necesario
@@ -32,3 +35,4 @@ cListaReceptores* cListaReceptores::FiltrarNuevaLista(cLista<cOrgano>* _lista_or
 
 
 }
+*/

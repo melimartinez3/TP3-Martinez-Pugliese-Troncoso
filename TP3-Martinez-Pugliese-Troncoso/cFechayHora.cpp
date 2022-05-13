@@ -21,6 +21,11 @@ void cFechayHora:: ObtenerFechayHora_Apertura(cDonante* donante,int hora, int mi
 	cFechayHora* fecha_hora_apertura=new cFechayHora(hora_t,dia,mes,anio); //inicializamos una variable de fecha y hora con los datos pasados como parametro
 	donante->FechaHoraApertura = fecha_hora_apertura; //se lo asignamos al atributo del donante 
 }
+cFechayHora* cFechayHora::ObtenerFechayHora_Extraccion(cDonante* donante, int n) {
+	time_t segundos_agregar = (time_t)n * 60;
+	cFechayHora* aux = new cFechayHora(donante->FechaHoraApertura->get_hora()+segundos_agregar, donante->FechaHoraApertura->get_anio(), donante->FechaHoraApertura->get_mes(), donante->FechaHoraApertura->get_dia());
+	return aux;
+}
 
 //destructor de fecha y hora
 cFechayHora::~cFechayHora(){}

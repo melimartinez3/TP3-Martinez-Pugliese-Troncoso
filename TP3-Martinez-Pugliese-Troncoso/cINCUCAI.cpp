@@ -1,10 +1,10 @@
 #include "cINCUCAI.h"
 
 //constructor 
-cINCUCAI::cINCUCAI(cLista<cDonante>* _cListaDonantes, cLista<cReceptor>* _cListaReceptores, cLista<cCentroSalud>* _cListaCentrosSalud) 
+cINCUCAI::cINCUCAI(cLista<cDonante>* _cListaDonantes, cLista<cReceptor>* _cListaReceptores, cLista<cCentroSalud>* _cListaCentrosSalud)
 {
 	cListaDonantes = _cListaDonantes;
-	cListaReceptores = _cListaReceptores;
+	cListaReceptor = _cListaReceptores;
 	cListaCentrosSalud = _cListaCentrosSalud;
 }
 
@@ -31,7 +31,7 @@ void cINCUCAI::AgregarPaciente(cPaciente* paciente, int m, cLista<cDonante>* _cL
 		cReceptor* receptor_aux = dynamic_cast<cReceptor*>(paciente);
 
 		int ca = _cListaReceptores->get_cant_actual();
-		int tamtotal = _cListaReceptores->get_tamaño_total();
+		int tamtotal = _cListaReceptores->get_tamanio_total();
 		if (ca < tamtotal) {
 			if (_cListaReceptores->lista[ca] == NULL)
 				_cListaReceptores->lista[ca] = receptor_aux;
@@ -44,7 +44,7 @@ void cINCUCAI::AgregarPaciente(cPaciente* paciente, int m, cLista<cDonante>* _cL
 		//agregar a la lista de donantes
 		cDonante* donante_aux = dynamic_cast<cDonante*>(paciente);
 		int ca = _cListaDonantes->get_cant_actual();
-		int tamtotal = _cListaDonantes->get_tamaño_total();
+		int tamtotal = _cListaDonantes->get_tamanio_total();
 		if (ca < tamtotal) {
 			if (_cListaDonantes->lista[ca] == NULL)
 				_cListaDonantes->lista[ca] = donante_aux;
@@ -62,9 +62,8 @@ cLista<cReceptor>* cINCUCAI::BuscaPosiblesReceptores(cLista<cReceptor>* lista_re
 	int i = 0;
 	string TipoSangreBuscar = donante->Get_TipoSangre();
 	aux1=lista_receptores->Filtrar(TipoSangreBuscar);
-	//int n = 
-	//for(int i=0;i<)
-	if (aux1->lista[i]->get_Organo()==)
+	
+	
 
 	
 }
@@ -76,8 +75,8 @@ cINCUCAI::~cINCUCAI()
 	if(cListaDonantes != NULL)
 		delete cListaDonantes;
 
-	if (cListaReceptores != NULL)
-		delete cListaReceptores;
+	if (cListaReceptor != NULL)
+		delete cListaReceptor;
 
 	if (cListaCentrosSalud != NULL)
 		delete cListaCentrosSalud;

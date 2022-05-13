@@ -17,7 +17,7 @@ public:
     friend class cINCUCAI;
     friend class cCentroSalud;
     cDonante(string _nombre, string _fechanac, char _sexo, string _telefono, string _tiposangre);
-    void ListaDeOrganosADonar();
+    void ListaDeOrganosADonar(cDonante* donante);
     ~cDonante();
 };
 

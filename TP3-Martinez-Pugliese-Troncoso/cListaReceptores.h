@@ -7,8 +7,9 @@ class cListaReceptores :
     private cLista<cReceptor>
 {
 public:
+    friend class cINCUCAI;
     cListaReceptores(int tamtotal);
-    cListaReceptores* FiltrarNuevaLista(cLista<cOrgano>* _lista_organos);
+    cLista<cReceptor>* FiltrarNuevaLista(cLista<cOrgano>* _lista_organos, cLista<cReceptor>* listareceptores);
     ~cListaReceptores();
 };
 

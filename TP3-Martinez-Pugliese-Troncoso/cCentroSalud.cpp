@@ -18,6 +18,14 @@ bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, eVehicu
 
 }
 
+eVehiculos cCentroSalud::CalculoDistancia(cDonante* donante,cReceptor* receptor) {
+
+   
+
+
+
+}
+
 
 
 

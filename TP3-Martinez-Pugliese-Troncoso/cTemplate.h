@@ -19,13 +19,13 @@ public:
 	int Buscar(string busqueda);
 	void operator-();
 	cLista<T>* Filtrar(string parametro);
-	~cLista()
+	~cLista();
 
 
 		int get_cant_actual() {
 		return this->CantActual;
 	}
-	int get_tamaño_total() {
+	int get_tamanio_total() {
 		return this->TamTotal;
 	}
 	// constructor de la lista template
