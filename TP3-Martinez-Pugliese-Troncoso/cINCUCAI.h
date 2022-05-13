@@ -17,5 +17,11 @@ public:
 	void AgregarPaciente(cPaciente* paciente, int m, cLista<cDonante>* _cListaDonantes, cLista<cReceptor>* _cListaReceptores);
 	cLista<cReceptor>* BuscaPosiblesReceptores(cDonante* donante);
 	void EleccionReceptor(cDonante* donante);
+	cLista<cReceptor>* ReceptoresPorOrgano(eOrgano _organo, cLista<cReceptor>* lista_receptores);
+	void OrdenarLista(cLista<cReceptor>* _lista_receptores);
+	void OrdenamientoPorFecha(cLista<cReceptor>* lista, int n);
+
+
+
 };
 

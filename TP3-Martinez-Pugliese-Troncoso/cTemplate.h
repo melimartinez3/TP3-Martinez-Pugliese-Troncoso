@@ -21,7 +21,9 @@ public:
 	void operator+(T* nuevo);
 	int Buscar(string busqueda);
 	void operator-();
-	cLista<T>* Filtrar(string parametro);
+	cLista<T>* Filtrar(string parametro);	
+	cLista<T>* Resize(cLista<T>* array, int n)
+
 	~cLista();
 
 
@@ -138,6 +140,17 @@ cLista<T>::cLista(int _tamtotal) {
 
 		return sublista; //retornamos la sublista
 
+	}
+
+	template <class T>
+	cLista<T>* cLista<T>::Resize(cLista<T>* array, int n)
+	{
+		cLista<T>* nuevo = new cLista<T>(n);
+		for (int i = 0; i < n; i++)
+		{
+			nuevo[i] = array[i];
+		}
+		return nuevo;
 	}
 
 	// destructor de la lista template
