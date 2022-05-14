@@ -8,8 +8,6 @@
 
 class cCentroSalud;
 
-//enum Organo { Corazon = 1, Higado, Pancreas, Huesos, Rinion, Pulmones, Intestino, Piel, Corneas };
-//typedef Organo eOrgano;
 
 using namespace std;
 
@@ -27,9 +25,16 @@ public:
 	cPaciente(string _nombre, string _fechanac, char _sexo, string _telefono, string _tiposangre);
 	bool AsignacionCentroDeSalud(cPaciente* paciente, cCentroSalud* centrosalud);
 	void DesasignacionCentroDeSalud(cPaciente* paciente);
+	friend bool operator==(const string& sangre1, const string& sangre2)
+	{
+		if (sangre1 == sangre2)
+			return true;
+
+		return false;
+	}
 	virtual ~cPaciente();
 
-	string Get_TipoSangre()
+	virtual string Get_TipoSangre()
 	{
 		return this->TipoSangre;
 	}

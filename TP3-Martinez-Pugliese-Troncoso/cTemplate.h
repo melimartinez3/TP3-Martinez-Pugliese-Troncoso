@@ -17,6 +17,7 @@ public:
 	friend class cDonante;
 	friend class cReceptor;
 	friend class cCentroSalud;
+	
 
 	cLista(int _tamtotal);
 	void operator+(T* nuevo);

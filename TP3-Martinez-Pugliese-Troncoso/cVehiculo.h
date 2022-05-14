@@ -6,11 +6,11 @@
 using namespace std;
 class cVehiculo
 {
-protected:
-	string patente;
 
 public:
-	
+	friend class cOrgano;
+
+	string patente;
 	cVehiculo(string patente_);
 	
 	~cVehiculo();

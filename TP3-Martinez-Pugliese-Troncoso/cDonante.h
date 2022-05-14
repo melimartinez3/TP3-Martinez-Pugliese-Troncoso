@@ -3,7 +3,6 @@
 class cOrgano;
 
 
-
 class cDonante :
     protected cPaciente
 {
@@ -16,10 +15,16 @@ public:
     friend class cINCUCAI;
     friend class cCentroSalud;
 
+
     cDonante(string _nombre, string _fechanac, char _sexo, string _telefono, string _tiposangre);
     void ListaDeOrganosADonar(cDonante* donante);
      eOrgano switchOrganos(int n);
     void AsignacionFechadeApertura(cDonante* donante, int hora, int min, int segundos, int dia, int mes, int anio);
     ~cDonante();
+
+    string Get_TipoSangre()
+    {
+        return this->TipoSangre;
+    }
 };
 

@@ -12,6 +12,8 @@ private:
     string Patologia;
 
 public:
+
+    friend class cCentroSalud;
   
     //constructor de cReceptor
     cReceptor(eOrgano _organo, bool _prioridad, bool _estado, string _patologia, string _nombre, string _fechanac, char _sexo, string _telefono, string _tiposangre);
@@ -42,6 +44,11 @@ public:
     bool  get_Prioridad()
     {
         return this->Prioridad;
+    }
+
+    string Get_TipoSangre()
+    {
+        return this->TipoSangre;
     }
 
     

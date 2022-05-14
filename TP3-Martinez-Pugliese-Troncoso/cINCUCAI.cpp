@@ -183,13 +183,20 @@ void cINCUCAI::OrdenamientoPorFecha(cLista<cReceptor>* lista, int n)
 
 
 
-void cINCUCAI::EleccionReceptor(cDonante* donante) {
+int cINCUCAI::EleccionReceptor(cDonante* donante, eOrgano organo) {
 	cLista<cReceptor>* listareceptores = BuscaPosiblesReceptores(donante);
 	int n=donante->listadeorganos->get_cant_actual();
+	int pos;
+
+	string sangre = donante->Get_TipoSangre();
+
 	for (int i = 0; i < n; i++) {
 		
-
+		if (listareceptores->lista[i]->get_Organo() == organo && sangre==listareceptores->lista[i]->Get_TipoSangre())
+			pos = i;
 	}
+
+	return pos;
 }
 
 
