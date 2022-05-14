@@ -1,4 +1,7 @@
 #include "cCentroSalud.h"
+
+#define _CRT_SECURE_NO_WARNINGS
+
 //constructor de cCentroSalud
 cCentroSalud::cCentroSalud(string _nombre, string _direcc, string _partido, string _provincia, string _telefono) {
 	this->Nombre = _nombre;
@@ -73,6 +76,32 @@ eVehiculos cCentroSalud::CalculoDistancia(cDonante* donante, cReceptor* receptor
 }
 
 
+void cCentroSalud::RealizacionDelTrasplante(cOrgano* organo, cINCUCAI* incucai,cReceptor* receptor) {
+
+	time_t hora_de_extraccion=organo->fechayhora_extraccion->get_hora();
+
+	time_t hora_de_diferencia_max = 20 *60*60; //segundos que hay en 20 horas
+
+	time_t tiempo_ahora;
+	tiempo_ahora = time(NULL);
+	//ctime(&tiempo_ahora);
+	
+
+	time_t diferencia_de_horas = difftime(tiempo_ahora, hora_de_extraccion);
+
+	int exitoso = rand() % 2; //exitoso es 0 y no exitoso es 1
+
+	if (diferencia_de_horas < hora_de_diferencia_max) { 
+		//se puede realizar el trasplante porque pasaron menos de 20 horas
+		if (exitoso == 0) {
+			incucai->cListaReceptor->operator-(receptor);
+		}
+		else {
+			receptor->set_estado(false);
+			receptor->set_prioridad(true);
+		}
+	}
+}
 
 // destructor de cCentroSalud
 cCentroSalud::~cCentroSalud() {

@@ -1,7 +1,9 @@
 #pragma once
 #include<stdio.h>
 #include<string>
+#include <iostream>
 #include <stdlib.h>
+#include <time.h>
 #include"cFechayHora.h"
 #include "cOrgano.h"
 #include "cTemplate.h"
@@ -22,6 +24,7 @@ protected:
 	cCentroSalud* CentroSaludd;
 	
 public:
+	
 	cPaciente(string _nombre, string _fechanac, char _sexo, string _telefono, string _tiposangre);
 	bool AsignacionCentroDeSalud(cPaciente* paciente, cCentroSalud* centrosalud);
 	void DesasignacionCentroDeSalud(cPaciente* paciente);

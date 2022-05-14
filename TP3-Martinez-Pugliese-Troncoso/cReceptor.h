@@ -14,10 +14,18 @@ private:
 public:
 
     friend class cCentroSalud;
-  
+    friend class cINCUCAI;
     //constructor de cReceptor
     cReceptor(eOrgano _organo, bool _prioridad, bool _estado, string _patologia, string _nombre, string _fechanac, char _sexo, string _telefono, string _tiposangre);
    
+
+    void set_estado(bool nuevo) {
+        this->Estado = nuevo;
+    }
+
+    void set_prioridad(bool prioridad) {
+        this->Prioridad = prioridad;
+    }
     eOrgano get_Organo() {
         return this->Organo;
     }

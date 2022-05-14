@@ -21,8 +21,8 @@ public:
 
 	cLista(int _tamtotal);
 	void operator+(T* nuevo);
-	int Buscar(string busqueda);
-	T* operator-(string busqueda);
+	int	Buscar(string busqueda);
+	T* operator-(T* aeliminar);
 	cLista<T>* Filtrar(string parametro);	
 	cLista<T>* Resize(cLista<T>* array, int n);
 
@@ -94,7 +94,7 @@ cLista<T>::cLista(int _tamtotal) {
 	/// <summary>
 	/// quitamos un elemento de la lista
 	/// </summary>
-	template <class T>
+	/*template <class T>
 	T* cLista<T>::operator-(string busqueda){
 		T* aux = NULL;
 		int pos = Buscar(busqueda);
@@ -111,7 +111,34 @@ cLista<T>::cLista(int _tamtotal) {
 		}
 		lista[CantActual] = NULL;
 		return aux;
+	}*/
+
+	template <class T>
+	T* cLista<T>::operator-(T* aeliminar) {
+		T* aux = NULL;
+		int pos=-1;
+
+		for (int i = 0; i < CantActual; i++) {
+			if (lista[i] == aeliminar)
+			{
+				aux = lista[i];
+				pos = i;
+			}
+		}
+
+		if (pos == -1)
+			return NULL;
+
+		CantActual--;
+		for (unsigned int j = pos; j < CantActual; j++)
+		{
+			lista[j] = lista[j + 1];
+		}
+		lista[CantActual] = NULL;
+
+		return aux;
 	}
+
 
 	/// <summary>
 	/// Filtramos y retornamos la sublista

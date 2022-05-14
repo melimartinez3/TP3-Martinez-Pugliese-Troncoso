@@ -2,11 +2,12 @@
 #include<stdio.h>
 #include<string>
 #include <stdlib.h>
-#include "cReceptor.h"
-#include "cDonante.h"
+#include "cINCUCAI.h"
 #include "cAmbulancia.h"
 #include "cAvion.h"
 #include "cHelicoptero.h"
+
+
 
 using namespace std;
 
@@ -33,6 +34,7 @@ public:
 	bool AsignacionVehiculo(cDonante* donante, eOrgano organo, cReceptor* receptor, string patente);
 	eVehiculos CalculoDistancia(cDonante* donante, cReceptor* receptor);
 	bool DesasignacionVehiculo();
+	void RealizacionDelTrasplante(cOrgano* organo, cINCUCAI* incucai, cReceptor* receptor);
 	string get_partido() {
 		return this->Partido;
 	}

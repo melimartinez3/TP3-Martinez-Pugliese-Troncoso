@@ -8,4 +8,3 @@ cVehiculo::cVehiculo(string patente_) {
 cVehiculo::~cVehiculo() {};
 
 
-

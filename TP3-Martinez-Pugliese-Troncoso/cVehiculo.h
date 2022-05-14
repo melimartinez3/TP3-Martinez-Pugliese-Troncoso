@@ -3,6 +3,8 @@
 #include<string>
 #include <stdlib.h>
 
+
+
 using namespace std;
 class cVehiculo
 {
@@ -12,7 +14,7 @@ public:
 
 	string patente;
 	cVehiculo(string patente_);
-	
-	~cVehiculo();
+
+	virtual ~cVehiculo();
 };
 
