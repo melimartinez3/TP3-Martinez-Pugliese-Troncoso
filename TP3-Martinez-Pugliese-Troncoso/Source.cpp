@@ -1,6 +1,7 @@
 #include <iostream>
 #include "cTemplate.h"
 #include "cINCUCAI.h"
+#include "cCentroSalud.h"
 
 #define TAM 50
 

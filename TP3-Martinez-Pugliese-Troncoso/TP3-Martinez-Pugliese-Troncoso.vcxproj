@@ -139,9 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cAmbulancia.cpp" />
+    <ClCompile Include="cAvion.cpp" />
     <ClCompile Include="cCentroSalud.cpp" />
     <ClCompile Include="cDonante.cpp" />
     <ClCompile Include="cFechayHora.cpp" />
+    <ClCompile Include="cHelicoptero.cpp" />
     <ClCompile Include="cINCUCAI.cpp" />
     <ClCompile Include="cOrgano.cpp" />
     <ClCompile Include="cPaciente.cpp" />
@@ -151,9 +154,12 @@
     <ClCompile Include="TP3-Martinez-Pugliese-Troncoso.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cAmbulancia.h" />
+    <ClInclude Include="cAvion.h" />
     <ClInclude Include="cCentroSalud.h" />
     <ClInclude Include="cDonante.h" />
     <ClInclude Include="cFechayHora.h" />
+    <ClInclude Include="cHelicoptero.h" />
     <ClInclude Include="cINCUCAI.h" />
     <ClInclude Include="cOrgano.h" />
     <ClInclude Include="cPaciente.h" />

@@ -1,5 +1,6 @@
 #include "cFechayHora.h"
 #include "cDonante.h"
+
 // cosntructor de fecha y hora
 cFechayHora::cFechayHora(time_t _hora, int anio, int mes, int dia) {
 	this->hora = _hora;

@@ -142,10 +142,11 @@ void cINCUCAI::OrdenarLista(cLista<cReceptor>* _lista_receptores)
 	{
 		aux_total->lista[i] = aux_prioridad->lista[i];
 	}
-
+	cont = 0;
 	for (i = p; i < n; i++)
 	{
-		aux_total->lista[i] = aux_sinprioridad->lista[i];
+		aux_total->lista[i] = aux_sinprioridad->lista[cont];
+		cont++;
 	}
 
 }

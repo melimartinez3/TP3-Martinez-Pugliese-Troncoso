@@ -10,7 +10,7 @@ cPaciente::cPaciente(string _nombre, string _fechanac, char _sexo, string _telef
 	this->Sexo = _sexo;
 	this->Telefono = _telefono;
 	this->TipoSangre = _tiposangre;
-	CentroSalud = NULL;
+	CentroSaludd = NULL;
 }
 /// <summary>
 /// en esta funcion le asignamos a un paciente su centro de salud correspondiente
@@ -19,8 +19,8 @@ cPaciente::cPaciente(string _nombre, string _fechanac, char _sexo, string _telef
 /// <param name="centrosalud"></param>
 /// <returns></returns>
 bool cPaciente::AsignacionCentroDeSalud(cPaciente* paciente, cCentroSalud* centrosalud) {
-	if (paciente->CentroSalud == NULL) {// vemos si el paciente no tiene un centro de slaud ya asignado
-		paciente->CentroSalud = centrosalud;// le asignamos el centro de salud correspondiente
+	if (paciente->CentroSaludd == NULL) {// vemos si el paciente no tiene un centro de slaud ya asignado
+		paciente->CentroSaludd = centrosalud;// le asignamos el centro de salud correspondiente
 		return true;
 	}
 	return false;// no se lo pudimos asignar
@@ -31,14 +31,14 @@ bool cPaciente::AsignacionCentroDeSalud(cPaciente* paciente, cCentroSalud* centr
 /// <param name="paciente"></param>
 /// <returns></returns>
 void cPaciente::DesasignacionCentroDeSalud(cPaciente* paciente) {
-	if (paciente->CentroSalud != NULL) {// vemos que el paciente tenga un centro de salud asignado
-		paciente->CentroSalud = NULL;// lo desasignamos
+	if (paciente->CentroSaludd != NULL) {// vemos que el paciente tenga un centro de salud asignado
+		paciente->CentroSaludd = NULL;// lo desasignamos
 	}
 }
 
 // destructor de cPaciente
 cPaciente::~cPaciente() {
 	
-	if(CentroSalud !=NULL)
-		delete CentroSalud;
+	if(CentroSaludd !=NULL)
+		delete CentroSaludd;
 };

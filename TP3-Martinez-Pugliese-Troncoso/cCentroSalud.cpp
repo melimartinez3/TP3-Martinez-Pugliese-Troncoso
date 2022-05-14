@@ -10,18 +10,25 @@ cCentroSalud::cCentroSalud(string _nombre, string _direcc, string _partido, stri
 	listavehiculos = NULL;
 
 }
-bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, eVehiculos vehiculo) {
-	int cont = 0;
-	while (cont < 10) {
-		//if(donante->listadeorganos-> == organo) CONSULTAR
-	}
+bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, eVehiculos vehiculoo) {
 
+	switch()
+	int n=donante->listadeorganos->get_cant_actual();
+	for(int i=0;i<n;i++){
+		if (donante->listadeorganos->lista[i]->get_Organo() == organo)
+		{
+			donante->listadeorganos->lista[i]->vehiculo=new cVehiculo()
+			return true;
+		}
+	}
+	return false;
 }
 
-eVehiculos cCentroSalud::CalculoDistancia(cDonante* donante,cReceptor* receptor) {
 
-   
+eVehiculos cCentroSalud::CalculoDistancia(cDonante* donante, cReceptor* receptor) {
 
+
+   if(donante->CentroSaludd->get_partido()==receptor->CentroSaludd->get_partido())
 
 
 }
@@ -34,4 +41,5 @@ cCentroSalud::~cCentroSalud() {
 	
 	if (listavehiculos != NULL)
 		delete listavehiculos;
+
 }
