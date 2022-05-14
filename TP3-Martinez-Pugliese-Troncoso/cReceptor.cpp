@@ -7,6 +7,7 @@ cReceptor::cReceptor(eOrgano _organo, bool _prioridad, bool _estado, string _pat
 	this->Prioridad = _prioridad;
 	this->Estado = _estado;
 	this->Patologia = _patologia;
+	CentroSalud = NULL;
 }
 /// <summary>
 /// Obtenemos la fecha y hora en la que se agrega al receptor a la lista

@@ -10,6 +10,7 @@ private:
     bool Prioridad;// absoluta=true no_ablsoluta=false
     bool Estado;// esta estable=true o inestable=false
     string Patologia;
+
 public:
   
     //constructor de cReceptor

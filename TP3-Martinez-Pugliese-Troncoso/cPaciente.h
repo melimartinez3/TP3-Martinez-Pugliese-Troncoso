@@ -8,8 +8,8 @@
 
 class cCentroSalud;
 
-enum Organo { Corazon = 1, Higado, Pancreas, Huesos, Rinion, Pulmones, Intestino, Piel, Corneas };
-typedef Organo eOrgano;
+//enum Organo { Corazon = 1, Higado, Pancreas, Huesos, Rinion, Pulmones, Intestino, Piel, Corneas };
+//typedef Organo eOrgano;
 
 using namespace std;
 
@@ -21,13 +21,14 @@ protected:
 	char Sexo;
 	string Telefono;
 	string TipoSangre;
-	cCentroSalud* CentroSalud;
+	cCentroSalud* CentroSaludd;
 	
 public:
 	cPaciente(string _nombre, string _fechanac, char _sexo, string _telefono, string _tiposangre);
 	bool AsignacionCentroDeSalud(cPaciente* paciente, cCentroSalud* centrosalud);
 	void DesasignacionCentroDeSalud(cPaciente* paciente);
 	virtual ~cPaciente();
+
 	string Get_TipoSangre()
 	{
 		return this->TipoSangre;

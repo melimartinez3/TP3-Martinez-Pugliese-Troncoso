@@ -16,13 +16,14 @@ public:
 	friend class cINCUCAI;
 	friend class cDonante;
 	friend class cReceptor;
+	friend class cCentroSalud;
 
 	cLista(int _tamtotal);
 	void operator+(T* nuevo);
 	int Buscar(string busqueda);
-	void operator-();
+	T* operator-(string busqueda);
 	cLista<T>* Filtrar(string parametro);	
-	cLista<T>* Resize(cLista<T>* array, int n)
+	cLista<T>* Resize(cLista<T>* array, int n);
 
 	~cLista();
 
@@ -90,25 +91,25 @@ cLista<T>::cLista(int _tamtotal) {
 	}
 
 	/// <summary>
-	/// Eliminamos un elemento de la lista
+	/// quitamos un elemento de la lista
 	/// </summary>
 	template <class T>
-	void cLista<T>::operator-() 
-	{
+	T* cLista<T>::operator-(string busqueda){
+		T* aux = NULL;
 		int pos = Buscar(busqueda);
 
 		if (pos == -1) 
-			return; //si no se encontro no lo borramos
+			return aux; //si no se encontro no lo borramos
 
-		delete lista[pos]; //borramos el elemento de la lista
-		CantActual--; //restamos 1 a la cantidad actual de la lista
-
-		for (int k = pos; k < CantActual; k++) //hacemos un for a partir de la posicion del elemento eliminado
+		
+		aux = lista[pos];
+		CantActual--;
+		for (unsigned int j = pos; j < CantActual; j++)
 		{
-			lista[k] = lista[k + 1]; //restamos en 1 la posicion de todos los elementos siguientes al elminado
+			lista[j] = lista[j + 1];
 		}
-		lista[CantActual] = NULL; //ponemos en NULL la ultima posicion de la lista
-		return;
+		lista[CantActual] = NULL;
+		return aux;
 	}
 
 	/// <summary>
@@ -152,7 +153,7 @@ cLista<T>::cLista(int _tamtotal) {
 		}
 		return nuevo;
 	}
-
+	
 	// destructor de la lista template
 	template <class T>
 	cLista<T>::~cLista() {
