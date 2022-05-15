@@ -22,9 +22,7 @@ public:
 	friend class cCentroSalud;
 	friend class cINCUCAI;
 	cOrgano(eOrgano _organo, cFechayHora* _fechayhora_extraccion);
-	eOrgano get_Organo() {
-		return this->organo;
-	}
+	eOrgano get_Organo();
 	
 	~cOrgano();
 };

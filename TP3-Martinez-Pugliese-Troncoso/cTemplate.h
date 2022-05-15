@@ -28,6 +28,7 @@ public:
 
 	~cLista();
 
+	void setter_ca();
 
 		int get_cant_actual() {
 		return this->CantActual;
@@ -41,6 +42,10 @@ public:
 	
 };
 
+template <class T>
+void cLista<T>::setter_ca() {
+	this->CantActual = this->CantActual+1;
+}
 
 // constructor de la lista template
 template <class T>
@@ -130,7 +135,7 @@ cLista<T>::cLista(int _tamtotal) {
 			return NULL;
 
 		CantActual--;
-		for (unsigned int j = pos; j < CantActual; j++)
+		for ( int j = pos; j < CantActual; j++)
 		{
 			lista[j] = lista[j + 1];
 		}

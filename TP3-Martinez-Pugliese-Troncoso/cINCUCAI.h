@@ -26,5 +26,6 @@ public:
 	void Trasplante(cDonante* donante,string patente);
 	void ProtocoloDeTransporte(cDonante* donante, cReceptor* receptor, eOrgano organo, string patente, int n);
 	void Transporte(cVehiculo* vehiculo);
+	void EstudiosYBusquedaParaTrasplante(cPaciente* paciente, string patente);
 };
 

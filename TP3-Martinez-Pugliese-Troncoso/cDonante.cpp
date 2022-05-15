@@ -45,10 +45,11 @@ void cDonante::ListaDeOrganosADonar(cDonante* donante) {
 		masminutos = masminutos + 5;
 		cOrgano* organoaux= new cOrgano(n, aux);// inicializamos el organo 
 		listaorganos->lista[i] = organoaux;// asociamos el organo inicializado en la lista de organos del donante
+		listaorganos->setter_ca();
 		cont++;
 		n = switchOrganos(cont);// vamos modificando el valor de cont, que determina los organos a donar
 	}
-	listaorganos->set_CantActual(cant_organos);
+	donante->listadeorganos=listaorganos;
 }
 /// <summary>
 /// switch para seleccionar el n asociado al eOrgano(enum)
@@ -67,6 +68,7 @@ eOrgano cDonante::switchOrganos(int n) {
 	case 8: return Piel;
 	case 9: return Corneas;
 	}
+	//VER 
 	throw new exception("\nNo hay organos a donar");
 }
 

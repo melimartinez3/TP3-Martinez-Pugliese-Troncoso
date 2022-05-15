@@ -2,7 +2,7 @@
 #include "cPaciente.h"
 
 class cReceptor :
-    protected cPaciente
+    public cPaciente
 {
 private:
     eOrgano Organo;

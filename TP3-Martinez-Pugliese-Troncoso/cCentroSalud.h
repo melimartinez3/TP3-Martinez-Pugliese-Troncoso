@@ -11,7 +11,7 @@
 
 using namespace std;
 
-enum Vehiculos { Ambulancia = 1, Avion, Helicoptero};
+enum Vehiculos { Ambulancia = 1, Avion, Helicoptero,SinReceptor=-1};
 typedef Vehiculos eVehiculos;
 
 class cCentroSalud

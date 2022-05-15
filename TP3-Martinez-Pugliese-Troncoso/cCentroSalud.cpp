@@ -21,9 +21,16 @@ bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, cRecept
 	cVehiculo* aux = NULL;
 
 	eVehiculos vehiculo_asignar = CalculoDistancia(donante, receptor);
+
 	
 	switch (vehiculo_asignar)
 	{
+	case -1: //no hay receptor asiq devuelvo false
+	      {
+		      return false;
+		      break;
+	      }
+
 	case 1: 
 		{
 			aux = new cAmbulancia(patente);
@@ -62,7 +69,10 @@ bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, cRecept
 eVehiculos cCentroSalud::CalculoDistancia(cDonante* donante, cReceptor* receptor) {
 
 	eVehiculos vehiculo;
-
+	if (receptor == NULL) {
+		vehiculo = SinReceptor; //como no hay receptor devolvemos esto
+		return vehiculo;
+	}
 	if (donante->CentroSaludd->get_partido() == receptor->CentroSaludd->get_partido() && donante->CentroSaludd->get_provincia() == receptor->CentroSaludd->get_provincia())
 		vehiculo = Ambulancia;
 

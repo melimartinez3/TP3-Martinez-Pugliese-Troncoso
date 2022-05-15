@@ -65,11 +65,10 @@ int main() {
 	incucai->RecibirPaciente(paciente3, cListaDonante, cListaReceptor, "ABC907");
 	incucai->RecibirPaciente(paciente4, cListaDonante, cListaReceptor, "AKL996");
 	//hacer el trasplante 
-	incucai->EstudiosYBusquedaParaTrasplante(paciente1, "AEI789");
+	//incucai->EstudiosYBusquedaParaTrasplante(paciente1, "AEI789");
 	incucai->EstudiosYBusquedaParaTrasplante(paciente3, "ABC907");
 
 
-	//POBAR A PARTIR DE ACA
 	paciente1->DesasignacionCentroDeSalud(paciente1);
 	paciente2->DesasignacionCentroDeSalud(paciente2);
 	

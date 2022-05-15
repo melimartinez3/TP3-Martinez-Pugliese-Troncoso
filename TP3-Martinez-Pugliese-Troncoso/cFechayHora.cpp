@@ -19,7 +19,7 @@ cFechayHora* cFechayHora:: ObtenerFechayHora(int hora, int min,int segundos, int
 	time_t hora_t;
 	hora_t = mktime(&when);//convertimos los datos de la hora pasada por parametros en int a time_t
 
-	cFechayHora* fecha_hora=new cFechayHora(hora_t,dia,mes,anio); //inicializamos una variable de fecha y hora con los datos pasados como parametro
+	cFechayHora* fecha_hora=new cFechayHora(hora_t,anio,mes, dia); //inicializamos una variable de fecha y hora con los datos pasados como parametro
 	return fecha_hora;
 }
 
