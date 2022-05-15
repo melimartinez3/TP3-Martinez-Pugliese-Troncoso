@@ -9,9 +9,6 @@ cReceptor::cReceptor(eOrgano _organo, bool _prioridad, bool _estado, string _pat
 	this->Patologia = _patologia;
 }
 
-
-
-
 /// <summary>
 /// Obtenemos la fecha y hora en la que se agrega al receptor a la lista
 /// </summary>
@@ -30,6 +27,31 @@ void cReceptor::AsignacionFechaLLegda(cReceptor* receptor,int hora,int min, int 
 
 }
 
+string cReceptor::PrioridadDelReceptor(cReceptor* receptor, cLista<cReceptor>* listadereceptores) {
+
+	int n = listadereceptores->get_cant_actual();
+	string prioridad;
+	for (int i = 0; i < n; i++) {
+
+		if (listadereceptores->lista[i] == receptor)
+		{
+			bool ok = receptor->get_Prioridad();
+			if (ok)
+			{
+				prioridad = "Prioridad Absoluta";
+				return prioridad;
+			}
+			else {
+				prioridad = "Sin Prioridad";
+					return prioridad;
+			}
+				
+		}
+	}
+	prioridad = "Error";//no se encontro al receptor
+	return prioridad;
+	
+}
 
 
 cReceptor::~cReceptor() {};

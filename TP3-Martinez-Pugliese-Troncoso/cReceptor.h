@@ -60,6 +60,8 @@ public:
         return this->TipoSangre;
     }
 
+    string PrioridadDelReceptor(cReceptor* receptor, cLista<cReceptor>* listadereceptores);
+
      /*friend ostream& operator<<(ostream& out, cPaciente* paciente) {
 
         cReceptor* receptor = dynamic_cast<cReceptor*>(paciente);

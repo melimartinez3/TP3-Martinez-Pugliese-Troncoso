@@ -6,7 +6,7 @@
 
 int main() {
 	srand(time(NULL));
-
+	
 	// declaramos las variables dinamicas
 	cPaciente* paciente1 = NULL;
 	cDonante* donante1=new cDonante("Pepe Argento", "20/10/1973", 'M', "1124861020", "B+");
@@ -71,37 +71,45 @@ int main() {
 
 
 	//hacer el trasplante 
-	//incucai->EstudiosYBusquedaParaTrasplante(paciente1, "AEI789");
+	incucai->EstudiosYBusquedaParaTrasplante(paciente1, "AEI789",centrodesalud1,centrodesalud2);
 
 	//incucai->EstudiosYBusquedaParaTrasplante(paciente3, "ABC907");
 
 
 
-	//POBAR A PARTIR DE ACA
+	
 	paciente1->DesasignacionCentroDeSalud(paciente1);
 	paciente2->DesasignacionCentroDeSalud(paciente2);
 
 
-
 	// eliminamos la memoria dinamica del main
-	if(paciente1!=NULL)
+	for (int i = 0; i < cListaReceptor->get_cant_actual(); i++) {
+		if (cListaReceptor->lista[i] != NULL)
+			delete cListaReceptor->lista[i];
+	}
+	delete cListaReceptor;
+
+	for (int i = 0; i < cListaDonante->get_cant_actual(); i++) {
+		if (cListaDonante->lista[i] != NULL)
+			delete cListaDonante->lista[i];
+	}
+	delete cListaDonante;
+
+	for (int i = 0; i < cListaCentroSalud->get_cant_actual(); i++) {
+		if (cListaCentroSalud->lista[i] != NULL)
+			delete cListaCentroSalud->lista[i];
+	}
+	delete cListaCentroSalud;
+
+	/*Estos deletes no son necesarios ya que fueron eliminados en los for de arriba
+	if (paciente1 != NULL)
 	 delete paciente1;
 	if (paciente2 != NULL)
 	 delete paciente2;
 	if (paciente3 != NULL)
 	 delete paciente3;
 	if (paciente4 != NULL)
-	 delete paciente4;
-		if (cListaCentroSalud != NULL)
-			delete cListaCentroSalud;
-		if (cListaReceptor != NULL)
-			delete cListaReceptor;
-		if (cListaDonante != NULL)
-			delete cListaDonante;
-		if (centrodesalud1 != NULL)
-			delete centrodesalud1;
-		if (centrodesalud2 != NULL)
-			delete centrodesalud2;
-	if (incucai != NULL)
-	 delete incucai;
+	 delete paciente4;*/
+	/*if (incucai != NULL)
+	 delete incucai;*/
 }

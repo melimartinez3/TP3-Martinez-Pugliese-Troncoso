@@ -8,11 +8,12 @@ using namespace std;
 template <class T>
 class cLista {
 private:
-	T** lista;
+
 	int CantActual;
 	int TamTotal;
 
 public:
+	T** lista;
 	friend class cINCUCAI;
 	friend class cDonante;
 	friend class cReceptor;
@@ -140,6 +141,7 @@ cLista<T>::cLista(int _tamtotal) {
 		{
 			lista[j] = lista[j + 1];
 		}
+
 		lista[CantActual] = NULL;
 
 		return aux;

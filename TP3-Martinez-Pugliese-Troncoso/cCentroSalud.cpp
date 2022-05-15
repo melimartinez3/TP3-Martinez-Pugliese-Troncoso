@@ -16,11 +16,11 @@ cCentroSalud::cCentroSalud(string _nombre, string _direcc, string _partido, stri
 
 }
 
-bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, cReceptor* receptor, string patente) {
+bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, cReceptor* receptor, string patente, cCentroSalud* centrosaluddonante, cCentroSalud* centrosaludreceptor) {
 
 	cVehiculo* aux = NULL;
 
-	eVehiculos vehiculo_asignar = CalculoDistancia(donante, receptor);
+	eVehiculos vehiculo_asignar = CalculoDistancia(donante, receptor,centrosaluddonante,centrosaludreceptor);
 
 	
 	switch (vehiculo_asignar)
@@ -66,17 +66,17 @@ bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, cRecept
 }
 
 
-eVehiculos cCentroSalud::CalculoDistancia(cDonante* donante, cReceptor* receptor) {
+eVehiculos cCentroSalud::CalculoDistancia(cDonante* donante, cReceptor* receptor, cCentroSalud* centrosaluddonante, cCentroSalud* centrosaludreceptor) {
 
 	eVehiculos vehiculo;
 	if (receptor == NULL) {
 		vehiculo = SinReceptor; //como no hay receptor devolvemos esto
 		return vehiculo;
 	}
-	if (donante->CentroSaludd->get_partido() == receptor->CentroSaludd->get_partido() && donante->CentroSaludd->get_provincia() == receptor->CentroSaludd->get_provincia())
+	if (centrosaluddonante->get_partido() == centrosaludreceptor->get_partido() && centrosaluddonante->get_provincia() == centrosaludreceptor->get_provincia())
 		vehiculo = Ambulancia;
-
-	else if (donante->CentroSaludd->get_provincia() == receptor->CentroSaludd->get_provincia() && donante->CentroSaludd->get_partido() != receptor->CentroSaludd->get_partido())
+	
+	else if (centrosaluddonante->get_provincia() == centrosaludreceptor->get_provincia() && centrosaluddonante->get_partido() != centrosaludreceptor->get_partido())
 		vehiculo = Helicoptero;
 
 	else
@@ -112,6 +112,36 @@ void cCentroSalud::RealizacionDelTrasplante(cOrgano* organo, cINCUCAI* incucai,c
 		}
 	}
 }
+
+cLista<cReceptor>* cCentroSalud::ReceptoresPorCentroSalud(cCentroSalud* centro, cLista<cReceptor>* lista_receptores)
+{
+	int n = lista_receptores->get_cant_actual();
+	cLista<cReceptor>* aux = new cLista<cReceptor>(n);
+	int p = 0;
+
+	for (int i = 0; i < n; i++)
+	{
+		if (lista_receptores->lista[i]->CentroSaludd == centro)
+		{
+			aux->lista[p] = lista_receptores->lista[i];
+			p++;
+		}
+	}
+
+	aux->set_CantActual(p);
+	aux = aux->Resize(aux, p);
+
+	return aux;
+}
+
+
+
+
+
+
+
+
+
 
 // destructor de cCentroSalud
 cCentroSalud::~cCentroSalud() {

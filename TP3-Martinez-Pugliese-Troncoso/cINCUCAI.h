@@ -23,10 +23,10 @@ public:
 	void OrdenarLista(cLista<cReceptor>* _lista_receptores);
 	void OrdenamientoPorFecha(cLista<cReceptor>* lista, int n);
 	cPaciente* BuscaPosibleDonante(cReceptor* receptor);
-	void Trasplante(cDonante* donante,string patente);
-	void ProtocoloDeTransporte(cDonante* donante, cReceptor* receptor, eOrgano organo, string patente, int n);
-	void Transporte(cVehiculo* vehiculo);
-	void EstudiosYBusquedaParaTrasplante(cPaciente* paciente, string patente);
+	void Trasplante(cDonante* donante,string patente, cCentroSalud* centrosaluddonante, cCentroSalud* centrosaludreceptor);
+	void ProtocoloDeTransporte(cDonante* donante, cReceptor* receptor, eOrgano organo, string patente, int n, cCentroSalud* centrosaluddonante, cCentroSalud* centrosaludreceptor);
+		void Transporte(cVehiculo* vehiculo);
+	void EstudiosYBusquedaParaTrasplante(cPaciente* paciente, string patente, cCentroSalud* centrosaluddonante, cCentroSalud* centrosaludreceptor);
 
 };
 

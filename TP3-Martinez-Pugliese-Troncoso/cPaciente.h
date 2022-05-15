@@ -23,10 +23,10 @@ protected:
 	char Sexo;
 	string Telefono;
 	string TipoSangre;
-	cCentroSalud* CentroSaludd;
 	
 public:
-	
+	cCentroSalud* CentroSaludd;
+	friend class cCentroSalud;
 	cPaciente(string _nombre, string _fechanac, char _sexo, string _telefono, string _tiposangre);
 	bool AsignacionCentroDeSalud(cPaciente* paciente, cCentroSalud* centrosalud);
 	void DesasignacionCentroDeSalud(cPaciente* paciente);
