@@ -63,11 +63,11 @@ void cINCUCAI::AgregarPaciente(cPaciente* paciente, int m, cLista<cDonante>* _cL
 	{
 		cReceptor* receptor_aux = dynamic_cast<cReceptor*>(paciente);
 
-		int ca = _cListaReceptores->get_cant_actual();
-		int tamtotal = _cListaReceptores->get_tamanio_total();
+		int ca = cListaReceptor->get_cant_actual();
+		int tamtotal = cListaReceptor->get_tamanio_total();
 		if (ca < tamtotal) {
-			if (_cListaReceptores->lista[ca] == NULL)
-				_cListaReceptores->lista[ca] = receptor_aux;
+			if (cListaReceptor->lista[ca] == NULL)
+				cListaReceptor->lista[ca] = receptor_aux;
 		}
 		return; 
 
@@ -108,7 +108,6 @@ cLista<cReceptor>* cINCUCAI::BuscaPosiblesReceptores(cDonante* donante)
 				sublista_aux->lista[p] = cListaReceptor->lista[i]; //igualamos el elemento[i] de la sublista auxiliar al elemento[i] de la lista original
 				sublista_aux->setter_ca();
 				p++; //sumamos 1
-				break;
 
 			}
 		}
@@ -154,6 +153,7 @@ cLista<cReceptor>* cINCUCAI::ReceptoresPorOrgano(eOrgano _organo, cLista<cRecept
 	}
 	OrdenarLista(aux);
 	aux->set_CantActual(p);
+	aux = aux->Resize(aux, p);
 	return aux;
 }
 
