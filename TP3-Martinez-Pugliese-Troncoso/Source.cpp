@@ -68,20 +68,18 @@ int main() {
 	incucai->RecibirPaciente(paciente2, cListaDonante, cListaReceptor, "ARE986");
 	incucai->RecibirPaciente(paciente3, cListaDonante, cListaReceptor, "ABC907");
 	incucai->RecibirPaciente(paciente4, cListaDonante, cListaReceptor, "AKL996");
-	cout << "funca recibir paciente\n";
+
+
 	//hacer el trasplante 
-	incucai->EstudiosYBusquedaParaTrasplante(paciente1, "AEI789");
-	cout << "funca estudios y busqueda 1\n";
-	incucai->EstudiosYBusquedaParaTrasplante(paciente3, "ABC907");
-	cout << "funca estudios y busqueda 2\n";
+	//incucai->EstudiosYBusquedaParaTrasplante(paciente1, "AEI789");
+
+	//incucai->EstudiosYBusquedaParaTrasplante(paciente3, "ABC907");
+
 
 
 	//POBAR A PARTIR DE ACA
 	paciente1->DesasignacionCentroDeSalud(paciente1);
 	paciente2->DesasignacionCentroDeSalud(paciente2);
-	
-
-	
 
 
 

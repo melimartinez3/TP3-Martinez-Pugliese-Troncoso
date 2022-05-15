@@ -25,10 +25,19 @@ public:
 	T* operator-(T* aeliminar);
 	cLista<T>* Filtrar(string parametro);	
 	cLista<T>* Resize(cLista<T>* array, int n);
+	//friend ostream& operator<<(ostream& out, T& clase);
+	
+
+	T* operator[](string busqueda)
+	{
+		return Buscar(busqueda);
+	}
+
 
 	~cLista();
 
 	void setter_ca();// setter de cant actual +1
+
 	void setter_ca_menos1() {
 		this->CantActual= this->CantActual - 1;
 	}
@@ -39,6 +48,7 @@ public:
 	int get_tamanio_total() {
 		return this->TamTotal;
 	}
+
 	void set_CantActual(int cantactual) {
 		this->CantActual = cantactual;
 	}
@@ -61,6 +71,9 @@ cLista<T>::cLista(int _tamtotal) {
 		lista[i] = NULL;
 	}
 }
+
+
+
 
 	/// <summary>
 	/// Agregamos a la lista un nuevo elemento
@@ -174,6 +187,21 @@ cLista<T>::cLista(int _tamtotal) {
 		}
 		return nuevo;
 	}
+
+
+
+	/*template <class T>
+	friend ostream& cLista<T>::operator<<(ostream& out, T& clase)
+	{
+		for (int i = 0; i < clase.CantActual; i++)
+		{
+			out << clase.lista[i] << endl;
+		}
+
+		return out;
+
+	}*/
+
 	
 	// destructor de la lista template
 	template <class T>

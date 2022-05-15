@@ -37,7 +37,7 @@ void cINCUCAI::RecibirPaciente(cPaciente* paciente, cLista<cDonante>* _cListaDon
 void cINCUCAI::EstudiosYBusquedaParaTrasplante(cPaciente* paciente, string patente) {
 
 	cDonante* donante_aux = dynamic_cast<cDonante*>(paciente);
-	
+	 
 	if (donante_aux == NULL)
 	{
 		//si es igual a NULL, nuestro paciente es un receptor
@@ -58,16 +58,29 @@ void cINCUCAI::EstudiosYBusquedaParaTrasplante(cPaciente* paciente, string paten
 
 void cINCUCAI::AgregarPaciente(cPaciente* paciente, int m, cLista<cDonante>* _cListaDonantes, cLista<cReceptor>* _cListaReceptores)
 {
+	int chequeo;
 	//si m es 0 es un receptor y si me es 1 es un donante
 	if (m == 0)
 	{
 		cReceptor* receptor_aux = dynamic_cast<cReceptor*>(paciente);
 
-		int ca = cListaReceptor->get_cant_actual();
+		int ca_receptores = cListaReceptor->get_cant_actual();
+		int ca_donantes = _cListaDonantes->get_cant_actual();
 		int tamtotal = cListaReceptor->get_tamanio_total();
-		if (ca < tamtotal) {
-			if (cListaReceptor->lista[ca] == NULL)
-				cListaReceptor->lista[ca] = receptor_aux;
+		chequeo = 0;
+		if (ca_receptores < tamtotal) {
+			for (int i = 0; i < ca_receptores; i++) {
+				if (receptor_aux == cListaReceptor->lista[i])//si esta repitido en el listado ya
+					chequeo++;//contamos 1
+			}
+
+			for (int i = 0; i < ca_receptores; i++) {
+				if (receptor_aux->Telefono == cListaDonantes->lista[i]->Telefono && receptor_aux->Nombre == cListaDonantes->lista[i]->Nombre)//si esta repitido en el listado ya
+					chequeo++;//contamos 1
+			}
+
+			if (cListaReceptor->lista[ca_receptores] == NULL && chequeo==0) //solo va a entrar el que no este repetido 
+				cListaReceptor->lista[ca_receptores] = receptor_aux;
 		}
 		return; 
 
@@ -76,11 +89,22 @@ void cINCUCAI::AgregarPaciente(cPaciente* paciente, int m, cLista<cDonante>* _cL
 	{
 		//agregar a la lista de donantes
 		cDonante* donante_aux = dynamic_cast<cDonante*>(paciente);
-		int ca = _cListaDonantes->get_cant_actual();
+		int ca_receptores = cListaReceptor->get_cant_actual();
+		int ca_donantes = _cListaDonantes->get_cant_actual();
 		int tamtotal = _cListaDonantes->get_tamanio_total();
-		if (ca < tamtotal) {
-			if (_cListaDonantes->lista[ca] == NULL)
-				_cListaDonantes->lista[ca] = donante_aux;
+		if (ca_donantes < tamtotal) {
+
+			for (int i = 0; i < ca_donantes; i++) {
+				if (donante_aux == cListaDonantes->lista[i])//si esta repitido en el listado ya de donantes
+					chequeo++;//contamos 1
+			}
+
+			for (int i = 0; i < ca_receptores; i++) {
+				if (donante_aux->Telefono == cListaReceptor->lista[i]->Telefono && donante_aux->Nombre == cListaReceptor->lista[i]->Nombre)//si esta repitido en el listado ya
+					chequeo++;//contamos 1
+			}
+			if (_cListaDonantes->lista[ca_donantes] == NULL)
+				_cListaDonantes->lista[ca_donantes] = donante_aux;
 		}
 		return;
 	}
@@ -151,11 +175,15 @@ cLista<cReceptor>* cINCUCAI::ReceptoresPorOrgano(eOrgano _organo, cLista<cRecept
 			p++;
 		}
 	}
+
 	OrdenarLista(aux);
 	aux->set_CantActual(p);
 	aux = aux->Resize(aux, p);
 	return aux;
 }
+
+
+
 
 void cINCUCAI::OrdenarLista(cLista<cReceptor>* _lista_receptores)
 {
@@ -185,12 +213,12 @@ void cINCUCAI::OrdenarLista(cLista<cReceptor>* _lista_receptores)
 	{
 		if (!_lista_receptores->lista[i]->get_Prioridad())
 		{
-			aux_sinprioridad->lista[p] = _lista_receptores->lista[i];
-			p++;
+			aux_sinprioridad->lista[k] = _lista_receptores->lista[i];
+			k++;
 		}
 	}
-	aux_sinprioridad = aux_sinprioridad->Resize(aux_sinprioridad, p);
-	OrdenamientoPorFecha(aux_sinprioridad, p);
+	aux_sinprioridad = aux_sinprioridad->Resize(aux_sinprioridad, k);
+	OrdenamientoPorFecha(aux_sinprioridad, k);
 
 	cLista<cReceptor>* aux_total = new cLista<cReceptor>(n);
 
@@ -341,3 +369,4 @@ cINCUCAI::~cINCUCAI()
 	if (cListaCentrosSalud != NULL)
 		delete cListaCentrosSalud;
 }
+

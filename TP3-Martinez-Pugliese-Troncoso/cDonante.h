@@ -27,5 +27,11 @@ public:
     {
         return this->TipoSangre;
     }
+
+    /*friend ostream& operator<<(ostream& out, const cPaciente& paciente) {
+        cout << paciente;
+        return out;
+    }*/
+    
 };
 

@@ -43,4 +43,7 @@ public:
 	{
 		return this->TipoSangre;
 	}
+
+	
+
 };

@@ -6,7 +6,6 @@ class cReceptor :
 {
 private:
     eOrgano Organo;
-  
     bool Prioridad;// absoluta=true no_ablsoluta=false
     bool Estado;// esta estable=true o inestable=false
     string Patologia;
@@ -61,7 +60,50 @@ public:
         return this->TipoSangre;
     }
 
+     /*friend ostream& operator<<(ostream& out, cPaciente* paciente) {
+
+        cReceptor* receptor = dynamic_cast<cReceptor*>(paciente);
+        string prioridad;
+        string estado;
+
+        if (receptor->Prioridad == true)
+            prioridad = "Si";
+        else 
+            prioridad = "No";
+
+        if (receptor->Estado == true)
+            estado = "Si";
+        else
+            estado = "No";
+
+        out << "\nNombre: " << receptor->Nombre << "Fecha de nacimiento: " << receptor->FechaNac << "Sexo: " << receptor->Sexo << "Telefono: " << receptor->Telefono << "Tipo de Sangre: " << receptor->TipoSangre << "Organo a Recibir: " << receptor->Organo <<"Prioridad: " << prioridad << "Estado: " << estado << "Patologia: " << receptor->Patologia<< endl;
+        return out;
+
+
+        friend ostream& operator<<(ostream& out, const cPaciente& paciente) {
+
+        cout << paciente;
+        string prioridad;
+        string estado;
+
+        if (this->Prioridad == true)
+            prioridad = "Si";
+        else
+            prioridad = "No";
+
+        if (this->Estado == true)
+            estado = "Si";
+        else
+            estado = "No";
+
+        out << "\nOrgano a Recibir: " << receptor->Organo << "Prioridad: " << prioridad << "Estado: " << estado << "Patologia: " << receptor->Patologia << endl;
+        return out;
+    }
+      
+    };*/
+
     
+   
     // destructor de cReceptor
     ~cReceptor();
 
