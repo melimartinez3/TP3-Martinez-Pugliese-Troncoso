@@ -22,7 +22,7 @@ public:
 	int Buscar(string busqueda);
 	void operator-();
 	cLista<T>* Filtrar(string parametro);	
-	cLista<T>* Resize(cLista<T>* array, int n)
+	cLista<T>* Resize(cLista<T>* array, int n);
 
 	~cLista();
 

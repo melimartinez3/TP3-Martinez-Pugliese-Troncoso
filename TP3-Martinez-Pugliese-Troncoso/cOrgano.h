@@ -18,7 +18,7 @@ public:
 	cOrgano(eOrgano _organo, cFechayHora* _fechayhora_extraccion);
 	eOrgano get_Organo() {
 		return this->organo;
-	}
+	};
 	~cOrgano();
 };
 

@@ -6,6 +6,8 @@
 #include "cOrgano.h"
 #include "cTemplate.h"
 
+using namespace std;
+
 class cCentroSalud;
 
 enum Organo { Corazon = 1, Higado, Pancreas, Huesos, Rinion, Pulmones, Intestino, Piel, Corneas };

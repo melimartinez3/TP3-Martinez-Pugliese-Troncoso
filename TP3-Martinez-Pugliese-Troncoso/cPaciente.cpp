@@ -1,7 +1,7 @@
 #include "cPaciente.h"
 #include "cCentroSalud.h"
 
-using namespace std;
+
 // constructor de cPaciente
 cPaciente::cPaciente(string _nombre, string _fechanac, char _sexo, string _telefono, string _tiposangre) {
 	
