@@ -1,5 +1,5 @@
 #include "cDonante.h"
-#include "cOrgano.h"
+
 
 cDonante::cDonante(string _nombre, string _fechanac, char _sexo, string _telefono, string _tiposangre) :cPaciente(_nombre, _fechanac, _sexo, _telefono, _tiposangre)
 {
@@ -33,7 +33,7 @@ void cDonante::AsignacionFechadeApertura(cDonante* donante, int hora, int min, i
 /// <param name="donante"></param>
 void cDonante::ListaDeOrganosADonar(cDonante* donante) {
 
-	int cant_organos = rand() % 10;// determinamos la cantidad de organos a donar
+	int cant_organos = (rand() %9)+1;// determinamos la cantidad de organos a donar
 	cLista<cOrgano>* listaorganos = new cLista<cOrgano>(cant_organos);
 	eOrgano n = Corazon;// primer organo a donar
 	int cont = 1;// empieza en 1 pq es el valor minimo del enum
@@ -45,10 +45,11 @@ void cDonante::ListaDeOrganosADonar(cDonante* donante) {
 		masminutos = masminutos + 5;
 		cOrgano* organoaux= new cOrgano(n, aux);// inicializamos el organo 
 		listaorganos->lista[i] = organoaux;// asociamos el organo inicializado en la lista de organos del donante
+		listaorganos->setter_ca();
 		cont++;
 		n = switchOrganos(cont);// vamos modificando el valor de cont, que determina los organos a donar
 	}
-	listaorganos->set_CantActual(cant_organos);
+	donante->listadeorganos=listaorganos;
 }
 /// <summary>
 /// switch para seleccionar el n asociado al eOrgano(enum)
@@ -67,7 +68,6 @@ eOrgano cDonante::switchOrganos(int n) {
 	case 8: return Piel;
 	case 9: return Corneas;
 	}
-	throw new exception("\nNo hay organos a donar");
 }
 
 
@@ -78,4 +78,7 @@ cDonante::~cDonante() {
 	
 	if(FechaHoraApertura != NULL)
 		delete FechaHoraApertura;
+
+	if (listadeorganos != NULL)
+		delete listadeorganos;
 };

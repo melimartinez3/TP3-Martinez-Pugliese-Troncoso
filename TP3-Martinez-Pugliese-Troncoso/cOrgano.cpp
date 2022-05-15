@@ -10,6 +10,10 @@ cOrgano::cOrgano(eOrgano _organo, cFechayHora* _fechayhora_extraccion) {
 
 }
 
+eOrgano cOrgano::get_Organo() {
+	return this->organo;
+}
+
 
 //destructor de cOrgano
 cOrgano::~cOrgano() {
