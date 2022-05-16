@@ -65,6 +65,19 @@ bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, cRecept
 	return false;
 }
 
+ bool cCentroSalud::DesasignacionVehiculo(cDonante* donante, eOrgano organo) {
+
+	int n = donante->listadeorganos->get_cant_actual();
+	for (int i = 0; i < n; i++) {
+		if (donante->listadeorganos->lista[i]->get_Organo() == organo)
+		{
+			donante->listadeorganos->lista[i]->vehiculo = NULL;
+			return true;// se desasigno el vehiculo  
+		}
+	}
+	return false;
+}
+
 
 eVehiculos cCentroSalud::CalculoDistancia(cDonante* donante, cReceptor* receptor, cCentroSalud* centrosaluddonante, cCentroSalud* centrosaludreceptor) {
 
@@ -86,7 +99,7 @@ eVehiculos cCentroSalud::CalculoDistancia(cDonante* donante, cReceptor* receptor
 }
 
 
-void cCentroSalud::RealizacionDelTrasplante(cOrgano* organo, cINCUCAI* incucai,cReceptor* receptor) {
+void cCentroSalud::RealizacionDelTrasplante(cOrgano* organo, cINCUCAI* incucai,cReceptor* receptor, cDonante* donante) {
 
 	time_t hora_de_extraccion=organo->fechayhora_extraccion->get_hora();
 
@@ -111,6 +124,9 @@ void cCentroSalud::RealizacionDelTrasplante(cOrgano* organo, cINCUCAI* incucai,c
 			receptor->set_prioridad(true);
 		}
 	}
+	eOrgano organo_aux = organo->organo;
+	bool vehiculo = DesasignacionVehiculo(donante, organo_aux);
+
 }
 
 cLista<cReceptor>* cCentroSalud::ReceptoresPorCentroSalud(cCentroSalud* centro, cLista<cReceptor>* lista_receptores)
@@ -134,14 +150,38 @@ cLista<cReceptor>* cCentroSalud::ReceptoresPorCentroSalud(cCentroSalud* centro, 
 	return aux;
 }
 
+/// <summary>
+/// en esta funcion chequeamos los organos donados en esa provincia (sin importar en que provincia esta el receptor)
+/// </summary>
+/// <param name="centrosalud"></param>
+/// <param name="donante"></param>
+/// <param name="receptor"></param>
+/// <returns></returns>
+int cCentroSalud::ListadeDonacionesPorProvincias(cCentroSalud* centrosalud, cLista<cDonante>* listadonantes, cINCUCAI* incucai, int mes) {
+	
+	string provincia=this->get_provincia();
+	int n = incucai->cListaDonantes->get_cant_actual();
+	int cont = 0;
+	// recorremos la lista de donantes
+	for (int i = 0; i < n; i++) {                              // corroboramos solo el primer organo ya que una vez que comienza la ablacion se quitan todos en ese mismo momento
+		if (provincia == listadonantes->lista[i]->CentroSaludd->get_provincia() && listadonantes->lista[i]->listadeorganos->lista[0]->fechayhora_extraccion->get_mes() == mes) {
+			cont++;
+		}
+	}
+	return cont;
+}
 
 
+string cCentroSalud::to_string() {
+	string dato;
+	dato = "\n Nombre: " + Nombre + " Direccion: " + Direccion + " Partido: " + Partido + " Provincia: " + Provincia + " Telefono: " + Telefono;
+	return dato;
+}
 
-
-
-
-
-
+void cCentroSalud::Imprimir() {
+	string dato = to_string();
+	cout << dato;
+}
 
 // destructor de cCentroSalud
 cCentroSalud::~cCentroSalud() {

@@ -53,5 +53,45 @@ string cReceptor::PrioridadDelReceptor(cReceptor* receptor, cLista<cReceptor>* l
 	
 }
 
+string cReceptor::to_string() {
+	
+	string sexo;
+	string organo;
+	string prioridad;
+	string estado;
+	switch (Organo) {
+	case 1: organo="Corazon";
+	case 2: organo= "Higado";
+	case 3: organo="Pancreas";
+	case 4: organo="Huesos";
+	case 5: organo= "Rinion";
+	case 6: organo= "Pulmones";
+	case 7: organo= "Intestino";
+	case 8: organo= "Piel";
+	case 9: organo= "Corneas";
+	}
+
+	if (Prioridad)
+		prioridad = "Absoluta";
+	if (!Prioridad)
+		prioridad = "Sin Prioridad";
+	if (Estado)
+			estado = "Estable";
+	if (!Estado)
+		estado = "Inestable";
+	if (Sexo == 'M')
+		sexo = "Masculino";
+	if (Sexo == 'F')
+		sexo = "Femenino";
+	string dato;
+	dato = "\nNombre: " + Nombre + " Fecha de Nacimineto: " + FechaNac + " Sexo: " + sexo + " Telefono: " + Telefono + " Tipo de Sangre: " + TipoSangre + " Organo: " + organo + " Prioridad " + prioridad + " Estado: " + estado;
+
+	return dato;
+}
+
+void cReceptor::Imprimir() {
+	string dato = to_string();
+	cout << dato;
+}
 
 cReceptor::~cReceptor() {};

@@ -68,16 +68,27 @@ int main() {
 	incucai->RecibirPaciente(paciente2, cListaDonante, cListaReceptor, "ARE986");
 	incucai->RecibirPaciente(paciente3, cListaDonante, cListaReceptor, "ABC907");
 	incucai->RecibirPaciente(paciente4, cListaDonante, cListaReceptor, "AKL996");
-
+	
+	// imprimimos la informacion de los donantes, receptores y cenros de salud
+	donante1->Imprimir();
+	donante2->Imprimir();
+	receptor1->Imprimir();
+	receptor2->Imprimir();
+	centrodesalud1->Imprimir();
+	centrodesalud2->Imprimir();
 
 	//hacer el trasplante 
 	incucai->EstudiosYBusquedaParaTrasplante(paciente1, "AEI789",centrodesalud1,centrodesalud2);
-
 	//incucai->EstudiosYBusquedaParaTrasplante(paciente3, "ABC907");
-
-
-
 	
+	//calculamos la conatidad de donaciones en el mes
+	int cant_donaciones = centrodesalud1->ListadeDonacionesPorProvincias(centrodesalud1, cListaDonante, incucai, 5);
+	cout << "Cantidad de Donaciones en el mes fueron: " <<cant_donaciones<<endl;
+	
+	cant_donaciones = centrodesalud2->ListadeDonacionesPorProvincias(centrodesalud2, cListaDonante, incucai, 5);
+	cout << "Cantidad de Donaciones en el mes fueron: " << cant_donaciones << endl;
+	
+	//desasignamos los centro de salud de cada paciente
 	paciente1->DesasignacionCentroDeSalud(paciente1);
 	paciente2->DesasignacionCentroDeSalud(paciente2);
 

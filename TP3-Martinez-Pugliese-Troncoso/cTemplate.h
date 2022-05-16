@@ -29,10 +29,8 @@ public:
 	//friend ostream& operator<<(ostream& out, T& clase);
 	
 
-	T* operator[](string busqueda)
-	{
-		return Buscar(busqueda);
-	}
+	T* operator[](string busqueda);
+	
 
 
 	~cLista();
@@ -112,7 +110,17 @@ cLista<T>::cLista(int _tamtotal) {
 		}
 	}
 
-
+	/// <summary>
+	/// Operator []
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="busqueda"></param>
+	/// <returns></returns>
+	template <class T>
+	T* cLista<T>::operator[](string busqueda)
+	{
+		return Buscar(busqueda);
+	}
 	
 	/// <summary>
 	/// esta funcion quita de la lista un elemento

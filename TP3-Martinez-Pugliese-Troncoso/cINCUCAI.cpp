@@ -313,7 +313,7 @@ void cINCUCAI::ProtocoloDeTransporte(cDonante* donante,cReceptor*receptor,eOrgan
 	
 	organo_donar=donante->listadeorganos->operator-(organo_donar);//quitamos el organo a donar de la lista
 	this->Transporte(organo_donar->vehiculo);
-	receptor->CentroSaludd->RealizacionDelTrasplante(organo_donar, this, receptor);
+	receptor->CentroSaludd->RealizacionDelTrasplante(organo_donar, this, receptor, donante);
 
 }
 cPaciente* cINCUCAI::BuscaPosibleDonante(cReceptor* receptor)

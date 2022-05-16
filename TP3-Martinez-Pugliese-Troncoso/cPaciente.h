@@ -37,13 +37,14 @@ public:
 
 		return false;
 	}
-	virtual ~cPaciente();
+
 
 	virtual string Get_TipoSangre()
 	{
 		return this->TipoSangre;
 	}
-
+	virtual string to_string() = 0;
+	virtual void Imprimir() = 0;
 	
-
+	virtual ~cPaciente();
 };

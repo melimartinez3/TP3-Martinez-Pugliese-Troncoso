@@ -28,6 +28,8 @@ public:
         return this->TipoSangre;
     }
 
+    string to_string();
+    void Imprimir();
     /*friend ostream& operator<<(ostream& out, const cPaciente& paciente) {
         cout << paciente;
         return out;

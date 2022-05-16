@@ -69,6 +69,23 @@ eOrgano cDonante::switchOrganos(int n) {
 	case 9: return Corneas;
 	}
 }
+string cDonante::to_string() {
+
+	string sexo;
+	if (Sexo == 'M')
+		sexo = "Masculino";
+	if(Sexo=='F')
+		sexo="Femenino";
+
+	string dato;
+	dato = "\nNombre: " + Nombre + " Fecha de Nacimineto: " + FechaNac + " Sexo: " + sexo + " Telefono: " + Telefono + " Tipo de Sangre: " + TipoSangre;
+	return dato;
+}
+
+void cDonante::Imprimir() {
+	string dato = to_string();
+	cout << dato;
+}
 
 
 cDonante::~cDonante() {

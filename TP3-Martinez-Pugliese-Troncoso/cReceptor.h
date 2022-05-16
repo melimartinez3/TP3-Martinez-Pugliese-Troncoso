@@ -62,6 +62,10 @@ public:
 
     string PrioridadDelReceptor(cReceptor* receptor, cLista<cReceptor>* listadereceptores);
 
+    string to_string();
+
+    void Imprimir();
+
      /*friend ostream& operator<<(ostream& out, cPaciente* paciente) {
 
         cReceptor* receptor = dynamic_cast<cReceptor*>(paciente);
