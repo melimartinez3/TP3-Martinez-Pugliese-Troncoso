@@ -60,15 +60,24 @@ string cReceptor::to_string() {
 	string prioridad;
 	string estado;
 	switch (Organo) {
-	case 1: organo="Corazon";
-	case 2: organo= "Higado";
-	case 3: organo="Pancreas";
-	case 4: organo="Huesos";
-	case 5: organo= "Rinion";
-	case 6: organo= "Pulmones";
-	case 7: organo= "Intestino";
-	case 8: organo= "Piel";
-	case 9: organo= "Corneas";
+	case 1: {organo = "Corazon";
+		break; }
+	case 2: {organo = "Higado";
+		break; }
+	case 3: { organo = "Pancreas";
+		break; }
+	case 4: { organo = "Huesos";
+		break; }
+	case 5: {organo = "Rinion";
+		break; }
+	case 6: {organo = "Pulmones";
+		break; }
+	case 7: {organo = "Intestino";
+		break; }
+	case 8: {organo = "Piel";
+		break; }
+	case 9: { organo = "Corneas";
+		break; }
 	}
 
 	if (Prioridad)

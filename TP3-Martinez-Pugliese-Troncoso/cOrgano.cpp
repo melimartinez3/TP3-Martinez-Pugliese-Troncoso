@@ -5,8 +5,10 @@
 
 //contructor de cOrgano
 cOrgano::cOrgano(eOrgano _organo, cFechayHora* _fechayhora_extraccion) {
+	
 	this->organo = _organo;
 	fechayhora_extraccion = _fechayhora_extraccion;
+	vehiculo = NULL;
 
 }
 

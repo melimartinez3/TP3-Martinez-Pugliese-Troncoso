@@ -16,52 +16,52 @@ cCentroSalud::cCentroSalud(string _nombre, string _direcc, string _partido, stri
 
 }
 
-bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, cReceptor* receptor, string patente, cCentroSalud* centrosaluddonante, cCentroSalud* centrosaludreceptor) {
+bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, cReceptor* receptor, string patente) {
 
-	cVehiculo* aux = NULL;
-
-	eVehiculos vehiculo_asignar = CalculoDistancia(donante, receptor,centrosaluddonante,centrosaludreceptor);
-
-	
-	switch (vehiculo_asignar)
-	{
-	case -1: //no hay receptor asiq devuelvo false
-	      {
-		      return false;
-		      break;
-	      }
-
-	case 1: 
-		{
-			aux = new cAmbulancia(patente);
-			break;
-		}
-		
-	case 2:
-	    {
-		    aux = new cAvion(patente);
-		    break;
-
-	    }
-
-	case 3:
-	{
-		aux = new cHelicoptero(patente);
-		break;
-
-	}
-		
-	}
+	int pos = 0;
+	eVehiculos vehiculo_asignar = CalculoDistancia(donante, receptor);
 
 	int n = donante->listadeorganos->get_cant_actual();
 	for (int i = 0; i < n; i++) {
 		if (donante->listadeorganos->lista[i]->get_Organo() == organo)
 		{
-			donante->listadeorganos->lista[i]->vehiculo = aux;
-			return true;
+			pos = i;
+			break;
 		}
 	}
+	switch (vehiculo_asignar)
+	{
+	case -1: //no hay receptor asiq devuelvo false
+	      {
+		      return false;
+	      }
 
+	case 1: 
+	{  if (donante->listadeorganos->lista[pos]->vehiculo == NULL) {
+		donante->listadeorganos->lista[pos]->vehiculo = new cAmbulancia(patente);
+		return true;
+	  }
+	}
+		
+	case 2:
+	    {
+		if (donante->listadeorganos->lista[pos]->vehiculo == NULL) {
+			donante->listadeorganos->lista[pos]->vehiculo = new cAvion(patente);
+			return true;
+		}
+
+	    }
+
+	case 3:
+	{
+		if (donante->listadeorganos->lista[pos]->vehiculo == NULL) {
+			donante->listadeorganos->lista[pos]->vehiculo = new cHelicoptero(patente);
+			return true;
+		}
+	
+	}
+		
+	}
 	return false;
 }
 
@@ -79,17 +79,17 @@ bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, cRecept
 }
 
 
-eVehiculos cCentroSalud::CalculoDistancia(cDonante* donante, cReceptor* receptor, cCentroSalud* centrosaluddonante, cCentroSalud* centrosaludreceptor) {
-
+eVehiculos cCentroSalud::CalculoDistancia(cDonante* donante, cReceptor* receptor) {
+	
 	eVehiculos vehiculo;
 	if (receptor == NULL) {
 		vehiculo = SinReceptor; //como no hay receptor devolvemos esto
 		return vehiculo;
 	}
-	if (centrosaluddonante->get_partido() == centrosaludreceptor->get_partido() && centrosaluddonante->get_provincia() == centrosaludreceptor->get_provincia())
+	if (donante->CentroSaludd->get_partido()== receptor->CentroSaludd->get_partido() && donante->CentroSaludd->get_provincia() == receptor->CentroSaludd->get_provincia())
 		vehiculo = Ambulancia;
 	
-	else if (centrosaluddonante->get_provincia() == centrosaludreceptor->get_provincia() && centrosaluddonante->get_partido() != centrosaludreceptor->get_partido())
+	else if (donante->CentroSaludd->get_provincia() == receptor->CentroSaludd->get_provincia() && donante->CentroSaludd->get_partido() != receptor->CentroSaludd->get_partido())
 		vehiculo = Helicoptero;
 
 	else
@@ -117,7 +117,7 @@ void cCentroSalud::RealizacionDelTrasplante(cOrgano* organo, cINCUCAI* incucai,c
 	if (diferencia_de_horas < hora_de_diferencia_max) { 
 		//se puede realizar el trasplante porque pasaron menos de 20 horas
 		if (exitoso == 0) {
-			incucai->cListaReceptor->operator-(receptor);
+			incucai->cListaReceptores->operator-(receptor);
 		}
 		else {
 			receptor->set_estado(false);
@@ -129,17 +129,17 @@ void cCentroSalud::RealizacionDelTrasplante(cOrgano* organo, cINCUCAI* incucai,c
 
 }
 
-cLista<cReceptor>* cCentroSalud::ReceptoresPorCentroSalud(cCentroSalud* centro, cLista<cReceptor>* lista_receptores)
+cLista<cReceptor>* cCentroSalud::ReceptoresPorCentroSalud(cCentroSalud* centro, cINCUCAI* incucai)
 {
-	int n = lista_receptores->get_cant_actual();
+	int n = incucai->cListaReceptores->get_cant_actual();
 	cLista<cReceptor>* aux = new cLista<cReceptor>(n);
 	int p = 0;
 
 	for (int i = 0; i < n; i++)
 	{
-		if (lista_receptores->lista[i]->CentroSaludd == centro)
+		if (incucai->cListaReceptores->lista[i]->CentroSaludd == centro)
 		{
-			aux->lista[p] = lista_receptores->lista[i];
+			aux->lista[p] = incucai->cListaReceptores->lista[i];
 			p++;
 		}
 	}
@@ -157,14 +157,15 @@ cLista<cReceptor>* cCentroSalud::ReceptoresPorCentroSalud(cCentroSalud* centro, 
 /// <param name="donante"></param>
 /// <param name="receptor"></param>
 /// <returns></returns>
-int cCentroSalud::ListadeDonacionesPorProvincias(cCentroSalud* centrosalud, cLista<cDonante>* listadonantes, cINCUCAI* incucai, int mes) {
-	
+int cCentroSalud::ListadeDonacionesPorProvincias(cINCUCAI* incucai, int mes) {
+	//Corregir
+
 	string provincia=this->get_provincia();
 	int n = incucai->cListaDonantes->get_cant_actual();
 	int cont = 0;
 	// recorremos la lista de donantes
 	for (int i = 0; i < n; i++) {                              // corroboramos solo el primer organo ya que una vez que comienza la ablacion se quitan todos en ese mismo momento
-		if (provincia == listadonantes->lista[i]->CentroSaludd->get_provincia() && listadonantes->lista[i]->listadeorganos->lista[0]->fechayhora_extraccion->get_mes() == mes) {
+		if (provincia == incucai->cListaDonantes->lista[i]->CentroSaludd->get_provincia() && incucai->cListaDonantes->lista[i]->listadeorganos->lista[0]->fechayhora_extraccion->get_mes() == mes) {
 			cont++;
 		}
 	}

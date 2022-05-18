@@ -1,32 +1,32 @@
 #pragma once
 #include "cDonante.h"
 #include "cReceptor.h"
-
+# define TAM 50
 class cINCUCAI
 {
 private:
 
 	cLista<cDonante>* cListaDonantes;
-	cLista<cReceptor>* cListaReceptor;
+	cLista<cReceptor>* cListaReceptores;
 	cLista<cCentroSalud>* cListaCentrosSalud;
 
 public: 
 	friend class cCentroSalud;
 
-	cINCUCAI(cLista<cDonante>* _cListaDonantes, cLista<cReceptor>* _cListaReceptores, cLista<cCentroSalud>* _cListaCentrosSalud);
+	cINCUCAI();
 	~cINCUCAI();
-	void RecibirPaciente(cPaciente* paciente, cLista<cDonante>* _cListaDonantes, cLista<cReceptor>* _cListaReceptores,string patente); 
-	void AgregarPaciente(cPaciente* paciente, int m, cLista<cDonante>* _cListaDonantes, cLista<cReceptor>* _cListaReceptores);
+	void RecibirPaciente(cPaciente* paciente,string patente); 
+	void AgregarPaciente(cPaciente* paciente, int m);
 	cLista<cReceptor>* BuscaPosiblesReceptores(cDonante* donante);
 	cReceptor* EleccionReceptor(cDonante* donante, eOrgano organo);
-	cLista<cReceptor>* ReceptoresPorOrgano(eOrgano _organo, cLista<cReceptor>* lista_receptores);
-	void OrdenarLista(cLista<cReceptor>* _lista_receptores);
-	void OrdenamientoPorFecha(cLista<cReceptor>* lista, int n);
+	cLista<cReceptor>* ReceptoresPorOrgano(eOrgano _organo);
+	void OrdenarLista();
+	void OrdenamientoPorFecha(cLista<cReceptor>* lista_aux, int n);
 	cPaciente* BuscaPosibleDonante(cReceptor* receptor);
-	void Trasplante(cDonante* donante,string patente, cCentroSalud* centrosaluddonante, cCentroSalud* centrosaludreceptor);
-	void ProtocoloDeTransporte(cDonante* donante, cReceptor* receptor, eOrgano organo, string patente, int n, cCentroSalud* centrosaluddonante, cCentroSalud* centrosaludreceptor);
+	void Trasplante(cDonante* donante,string patente);
+	void ProtocoloDeTransporte(cDonante* donante, cReceptor* receptor, eOrgano organo, string patente, int n);
 		void Transporte(cVehiculo* vehiculo);
-	void EstudiosYBusquedaParaTrasplante(cPaciente* paciente, string patente, cCentroSalud* centrosaluddonante, cCentroSalud* centrosaludreceptor);
+	void EstudiosYBusquedaParaTrasplante(cPaciente* paciente, string patente);
 
 };
 

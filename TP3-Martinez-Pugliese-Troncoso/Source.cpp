@@ -27,11 +27,9 @@ int main() {
 	cCentroSalud* centrodesalud1 = new cCentroSalud("centrito4", "Juramento 2556", "Buenos Aires", "Buenos Aires", "46583226");
 	cCentroSalud* centrodesalud2 = new cCentroSalud("centrito5", "Cabildo 2856", "Buenos Aires", "Buenos Aires", "46583226");
 
-	cLista<cDonante>* cListaDonante = new cLista<cDonante>(TAM);
-	cLista<cReceptor>* cListaReceptor = new cLista<cReceptor>(TAM);
-	cLista<cCentroSalud>* cListaCentroSalud = new cLista<cCentroSalud>(TAM);
+	
 
-	cINCUCAI* incucai = new cINCUCAI(cListaDonante, cListaReceptor, cListaCentroSalud);
+	cINCUCAI* incucai = new cINCUCAI();
 
 	//obtenemos la fecha y hora de falleciicmiento
 	donante1->FechaHoraFallecimiento=donante1->FechaHoraFallecimiento->ObtenerFechayHora(13, 18, 13, 14, 5, 2022);
@@ -64,10 +62,10 @@ int main() {
 	}
 
 	//agregamos los pacientes a las listas
-	incucai->RecibirPaciente(paciente1, cListaDonante, cListaReceptor, "AEI789");
-	incucai->RecibirPaciente(paciente2, cListaDonante, cListaReceptor, "ARE986");
-	incucai->RecibirPaciente(paciente3, cListaDonante, cListaReceptor, "ABC907");
-	incucai->RecibirPaciente(paciente4, cListaDonante, cListaReceptor, "AKL996");
+	incucai->RecibirPaciente(paciente1, "AEI789");
+	incucai->RecibirPaciente(paciente2, "ARE986");
+	incucai->RecibirPaciente(paciente3, "ABC907");
+	incucai->RecibirPaciente(paciente4, "AKL996");
 	
 	// imprimimos la informacion de los donantes, receptores y cenros de salud
 	donante1->Imprimir();
@@ -78,41 +76,19 @@ int main() {
 	centrodesalud2->Imprimir();
 
 	//hacer el trasplante 
-	incucai->EstudiosYBusquedaParaTrasplante(paciente1, "AEI789",centrodesalud1,centrodesalud2);
+	incucai->EstudiosYBusquedaParaTrasplante(paciente1, "AEI789");
 	//incucai->EstudiosYBusquedaParaTrasplante(paciente3, "ABC907");
 	
 	//calculamos la conatidad de donaciones en el mes
-	int cant_donaciones = centrodesalud1->ListadeDonacionesPorProvincias(centrodesalud1, cListaDonante, incucai, 5);
-	cout << "Cantidad de Donaciones en el mes fueron: " <<cant_donaciones<<endl;
-	
-	cant_donaciones = centrodesalud2->ListadeDonacionesPorProvincias(centrodesalud2, cListaDonante, incucai, 5);
+	int cant_donaciones;
+	cant_donaciones = centrodesalud2->ListadeDonacionesPorProvincias(incucai, 5);
 	cout << "Cantidad de Donaciones en el mes fueron: " << cant_donaciones << endl;
 	
 	//desasignamos los centro de salud de cada paciente
 	paciente1->DesasignacionCentroDeSalud(paciente1);
 	paciente2->DesasignacionCentroDeSalud(paciente2);
 
-
-	// eliminamos la memoria dinamica del main
-	for (int i = 0; i < cListaReceptor->get_cant_actual(); i++) {
-		if (cListaReceptor->lista[i] != NULL)
-			delete cListaReceptor->lista[i];
-	}
-	delete cListaReceptor;
-
-	for (int i = 0; i < cListaDonante->get_cant_actual(); i++) {
-		if (cListaDonante->lista[i] != NULL)
-			delete cListaDonante->lista[i];
-	}
-	delete cListaDonante;
-
-	for (int i = 0; i < cListaCentroSalud->get_cant_actual(); i++) {
-		if (cListaCentroSalud->lista[i] != NULL)
-			delete cListaCentroSalud->lista[i];
-	}
-	delete cListaCentroSalud;
-
-	/*Estos deletes no son necesarios ya que fueron eliminados en los for de arriba
+	
 	if (paciente1 != NULL)
 	 delete paciente1;
 	if (paciente2 != NULL)
@@ -120,7 +96,11 @@ int main() {
 	if (paciente3 != NULL)
 	 delete paciente3;
 	if (paciente4 != NULL)
-	 delete paciente4;*/
-	/*if (incucai != NULL)
-	 delete incucai;*/
+	 delete paciente4;
+	if (centrodesalud1 != NULL)
+		delete centrodesalud1;
+	if (centrodesalud2 != NULL)
+		delete centrodesalud2;
+	if (incucai != NULL)
+	 delete incucai;
 }

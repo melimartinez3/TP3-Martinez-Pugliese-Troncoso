@@ -32,12 +32,12 @@ public:
 	
 
 	cCentroSalud(string _nombre, string _direcc, string _partido, string _provincia, string _telefono);
-	bool AsignacionVehiculo(cDonante* donante, eOrgano organo, cReceptor* receptor, string patente, cCentroSalud* centrosaluddonante, cCentroSalud* centrosaludreceptor);
-	eVehiculos CalculoDistancia(cDonante* donante, cReceptor* receptor, cCentroSalud* centrosaluddonante, cCentroSalud* centrosaludreceptor);
+	bool AsignacionVehiculo(cDonante* donante, eOrgano organo, cReceptor* receptor, string patente);
+	eVehiculos CalculoDistancia(cDonante* donante, cReceptor* receptor);
 	bool DesasignacionVehiculo(cDonante* donante, eOrgano organo);
 	void RealizacionDelTrasplante(cOrgano* organo, cINCUCAI* incucai, cReceptor* receptor, cDonante* donante);
-	cLista<cReceptor>* ReceptoresPorCentroSalud(cCentroSalud* centro, cLista<cReceptor>* lista_receptores);
-	int ListadeDonacionesPorProvincias(cCentroSalud* centrosalud, cLista<cDonante>* listadonantes, cINCUCAI* incucai, int mes);
+	cLista<cReceptor>* ReceptoresPorCentroSalud(cCentroSalud* centro, cINCUCAI* incucai);
+	int ListadeDonacionesPorProvincias(cINCUCAI* incucai, int mes);
 
 	string get_partido() {
 		return this->Partido;
