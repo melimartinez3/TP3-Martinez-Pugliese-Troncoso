@@ -22,5 +22,7 @@ cOrgano::~cOrgano() {
 
 	if(fechayhora_extraccion !=NULL)
 		delete fechayhora_extraccion;
+	if (vehiculo != NULL) 
+		delete vehiculo;
 
 }

@@ -31,7 +31,7 @@ public:
         return this->Organo;
     }
    
-    void AsignacionFechaLLegda(cReceptor* receptor, int hora, int min, int segundos, int dia, int mes, int anio);
+    void AsignacionFechaLLegda(cReceptor* receptor,int dia, int mes, int anio);
   
     time_t get_HoraAgregado()
     {

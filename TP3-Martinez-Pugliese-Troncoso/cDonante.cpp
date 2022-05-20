@@ -18,10 +18,10 @@ cDonante::cDonante(string _nombre, string _fechanac, char _sexo, string _telefon
 /// <param name="dia"></param>
 /// <param name="mes"></param>
 /// <param name="anio"></param>
-void cDonante::AsignacionFechadeApertura(cDonante* donante, int hora, int min, int segundos, int dia, int mes, int anio) {
+void cDonante::AsignacionFechadeApertura(cDonante* donante, int dia, int mes, int anio) {
 
 	cFechayHora* fecha_hora_apertura= new cFechayHora(0, 0, 0, 0);
-	fecha_hora_apertura = fecha_hora_apertura->ObtenerFechayHora(hora, min, segundos, dia, mes, anio);
+	fecha_hora_apertura = fecha_hora_apertura->ObtenerFechayHora(dia, mes, anio);
 	if(donante->FechaHoraApertura==NULL)
 	donante->FechaHoraApertura = fecha_hora_apertura; //se lo asignamos al atributo del donante
 	 

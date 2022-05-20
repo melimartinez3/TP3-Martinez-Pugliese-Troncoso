@@ -19,9 +19,9 @@ cReceptor::cReceptor(eOrgano _organo, bool _prioridad, bool _estado, string _pat
 /// <param name="dia"></param>
 /// <param name="mes"></param>
 /// <param name="anio"></param>
-void cReceptor::AsignacionFechaLLegda(cReceptor* receptor,int hora,int min, int segundos, int dia, int mes, int anio) {
+void cReceptor::AsignacionFechaLLegda(cReceptor* receptor, int dia, int mes, int anio) {
 	cFechayHora* fecha_hora_llegada = new cFechayHora(0, 0, 0, 0);// inicializamos la fecha y hora por defecto
-	fecha_hora_llegada = fecha_hora_llegada->ObtenerFechayHora(hora, min, segundos, dia, mes, anio);// obtenemos la fecha y hora 
+	fecha_hora_llegada = fecha_hora_llegada->ObtenerFechayHora(dia, mes, anio);// obtenemos la fecha y hora 
 	if (receptor->FechaAgregado == NULL)
 		receptor->FechaAgregado = fecha_hora_llegada; //se lo asignamos al atributo del receptor
 

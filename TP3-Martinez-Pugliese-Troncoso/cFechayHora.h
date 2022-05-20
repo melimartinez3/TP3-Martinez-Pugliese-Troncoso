@@ -16,7 +16,7 @@ public:
     ~cFechayHora();
 
     //declaramos los metodos
-    cFechayHora* ObtenerFechayHora(int hora, int min, int segundos, int dia, int mes, int anio);
+    cFechayHora* ObtenerFechayHora(int dia, int mes, int anio);
     cFechayHora* ObtenerFechayHora_Extraccion(cDonante* donante, int n);
 
 

@@ -32,15 +32,15 @@ int main() {
 	cINCUCAI* incucai = new cINCUCAI();
 
 	//obtenemos la fecha y hora de falleciicmiento
-	donante1->FechaHoraFallecimiento=donante1->FechaHoraFallecimiento->ObtenerFechayHora(13, 18, 13, 14, 5, 2022);
-	donante2->FechaHoraFallecimiento=donante2->FechaHoraFallecimiento->ObtenerFechayHora(19, 16, 20, 14, 5, 2002);
+	donante1->FechaHoraFallecimiento=donante1->FechaHoraFallecimiento->ObtenerFechayHora(14, 5, 2022);
+	donante2->FechaHoraFallecimiento=donante2->FechaHoraFallecimiento->ObtenerFechayHora(14, 5, 2002);
 	
 	//obtenemos la fecha y hora de apertura del cuerpo
-	donante1->FechaHoraApertura = donante1->FechaHoraApertura->ObtenerFechayHora(13, 27, 45, 14, 5, 2022);
-	donante2->FechaHoraApertura = donante1->FechaHoraApertura->ObtenerFechayHora(19, 56, 12, 14, 5, 2022);
+	donante1->FechaHoraApertura = donante1->FechaHoraApertura->ObtenerFechayHora(14, 5, 2022);
+	donante2->FechaHoraApertura = donante1->FechaHoraApertura->ObtenerFechayHora(14, 5, 2022);
 	// le asignamos al receptor la fecha en la que ingreso al centro de salud
-	receptor1->AsignacionFechaLLegda(receptor1,13, 27, 45, 14, 5, 2022);
-	receptor2->AsignacionFechaLLegda(receptor2,19, 56, 12, 3, 5, 2022);
+	receptor1->AsignacionFechaLLegda(receptor1, 14, 5, 2022);
+	receptor2->AsignacionFechaLLegda(receptor2, 3, 5, 2022);
 
 	
 	// asignamos y desasignamos el centro de salud del paciente 1
@@ -99,10 +99,7 @@ int main() {
 	paciente2->DesasignacionCentroDeSalud(paciente2);
 
 	
-	if (centrodesalud1 != NULL)
-		delete centrodesalud1;
-	if (centrodesalud2 != NULL)
-		delete centrodesalud2;
+	/*
 	if (paciente1 != NULL)
 	 delete paciente1;
 	if (paciente2 != NULL)
@@ -110,8 +107,12 @@ int main() {
 	if (paciente3 != NULL)
 	 delete paciente3;
 	if (paciente4 != NULL)
-	 delete paciente4;
+	 delete paciente4;*/
 	if (incucai != NULL)
 	 delete incucai;
+	if (centrodesalud1 != NULL)
+		delete centrodesalud1;
+	if (centrodesalud2 != NULL)
+		delete centrodesalud2;
 	return 0;
 }
