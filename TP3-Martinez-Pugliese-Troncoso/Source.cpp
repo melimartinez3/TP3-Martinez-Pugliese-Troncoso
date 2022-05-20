@@ -34,7 +34,7 @@ int main() {
 	//obtenemos la fecha y hora de falleciicmiento
 	donante1->FechaHoraFallecimiento=donante1->FechaHoraFallecimiento->ObtenerFechayHora(13, 18, 13, 14, 5, 2022);
 	donante2->FechaHoraFallecimiento=donante2->FechaHoraFallecimiento->ObtenerFechayHora(19, 16, 20, 14, 5, 2002);
-
+	
 	//obtenemos la fecha y hora de apertura del cuerpo
 	donante1->FechaHoraApertura = donante1->FechaHoraApertura->ObtenerFechayHora(13, 27, 45, 14, 5, 2022);
 	donante2->FechaHoraApertura = donante1->FechaHoraApertura->ObtenerFechayHora(19, 56, 12, 14, 5, 2022);
@@ -42,7 +42,7 @@ int main() {
 	receptor1->AsignacionFechaLLegda(receptor1,13, 27, 45, 14, 5, 2022);
 	receptor2->AsignacionFechaLLegda(receptor2,19, 56, 12, 3, 5, 2022);
 
-
+	
 	// asignamos y desasignamos el centro de salud del paciente 1
 	bool ok=paciente1->AsignacionCentroDeSalud(paciente1, centrodesalud1);
 	if (!ok) {
@@ -60,7 +60,7 @@ int main() {
 	if (!ok) {
 		cout << "El paciente ya tenia un centro asignado" << endl;
 	}
-
+	
 	//agregamos los pacientes a las listas
 	incucai->RecibirPaciente(paciente1, "AEI789");
 	incucai->RecibirPaciente(paciente2, "ARE986");
@@ -74,11 +74,11 @@ int main() {
 	receptor2->Imprimir();
 	centrodesalud1->Imprimir();
 	centrodesalud2->Imprimir();
-
+	
 	//hacer el trasplante 
 	incucai->EstudiosYBusquedaParaTrasplante(paciente1, "AEI789");
 	//incucai->EstudiosYBusquedaParaTrasplante(paciente3, "ABC907");
-	
+	/*
 	//calculamos la conatidad de donaciones en el mes
 	int cant_donaciones;
 	cant_donaciones = centrodesalud2->ListadeDonacionesPorProvincias(incucai, 5);
@@ -103,4 +103,5 @@ int main() {
 		delete centrodesalud2;
 	if (incucai != NULL)
 	 delete incucai;
+	 */
 }
