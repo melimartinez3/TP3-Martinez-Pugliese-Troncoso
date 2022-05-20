@@ -1,8 +1,7 @@
 #pragma once
+#define _CRT_SECURE_NO_WARNINGS
+#include <ctime>
 class cDonante;
-#include <time.h>
-#define _CRT_SECURE_NOWARNINGS
-
 
 using namespace std;
 

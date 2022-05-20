@@ -1,5 +1,4 @@
 #include "cCentroSalud.h"
-
 #define _CRT_SECURE_NO_WARNINGS
 
 //constructor de cCentroSalud
@@ -107,7 +106,7 @@ void cCentroSalud::RealizacionDelTrasplante(cOrgano* organo, cINCUCAI* incucai,c
 
 	time_t tiempo_ahora;
 	tiempo_ahora = time(NULL);
-	//ctime(&tiempo_ahora);
+	ctime(&tiempo_ahora);
 	
 
 	time_t diferencia_de_horas = difftime(tiempo_ahora, hora_de_extraccion);
@@ -145,40 +144,16 @@ cLista<cReceptor>* cCentroSalud::ReceptoresPorCentroSalud(cCentroSalud* centro, 
 	}
 
 	aux->set_CantActual(p);
-	aux = aux->Resize(aux, p);
+	//aux = aux->Resize(aux, p);
 
 	return aux;
 }
-
-/// <summary>
-/// en esta funcion chequeamos los organos donados en esa provincia (sin importar en que provincia esta el receptor)
-/// </summary>
-/// <param name="centrosalud"></param>
-/// <param name="donante"></param>
-/// <param name="receptor"></param>
-/// <returns></returns>
-int cCentroSalud::ListadeDonacionesPorProvincias(cINCUCAI* incucai, int mes) {
-	//Corregir
-
-	string provincia=this->get_provincia();
-	int n = incucai->cListaDonantes->get_cant_actual();
-	int cont = 0;
-	// recorremos la lista de donantes
-	for (int i = 0; i < n; i++) {                              // corroboramos solo el primer organo ya que una vez que comienza la ablacion se quitan todos en ese mismo momento
-		if (provincia == incucai->cListaDonantes->lista[i]->CentroSaludd->get_provincia() && incucai->cListaDonantes->lista[i]->listadeorganos->lista[0]->fechayhora_extraccion->get_mes() == mes) {
-			cont++;
-		}
-	}
-	return cont;
-}
-
 
 string cCentroSalud::to_string() {
 	string dato;
 	dato = "\n Nombre: " + Nombre + " Direccion: " + Direccion + " Partido: " + Partido + " Provincia: " + Provincia + " Telefono: " + Telefono;
 	return dato;
 }
-
 void cCentroSalud::Imprimir() {
 	string dato = to_string();
 	cout << dato;

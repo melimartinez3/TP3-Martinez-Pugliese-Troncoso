@@ -44,7 +44,7 @@ public:
 		return this->TipoSangre;
 	}
 	virtual string to_string() = 0;
-	virtual void Imprimir() = 0;
+	//virtual void Imprimir() = 0;
 	
 	virtual ~cPaciente();
 };

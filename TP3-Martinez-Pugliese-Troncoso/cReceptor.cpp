@@ -98,9 +98,5 @@ string cReceptor::to_string() {
 	return dato;
 }
 
-void cReceptor::Imprimir() {
-	string dato = to_string();
-	cout << dato;
-}
 
 cReceptor::~cReceptor() {};

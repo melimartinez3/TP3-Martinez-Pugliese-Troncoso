@@ -24,7 +24,7 @@ void cINCUCAI::RecibirPaciente(cPaciente* paciente, string patente) //Pasarle po
 		//si es igual a NULL, nuestro paciente es un receptor
 		cReceptor* receptor_aux = dynamic_cast<cReceptor*>(paciente);
 		this->AgregarPaciente(paciente, 0);
-		cListaReceptores->setter_ca();
+	
 		return;
 	}
 
@@ -32,7 +32,7 @@ void cINCUCAI::RecibirPaciente(cPaciente* paciente, string patente) //Pasarle po
 	donante_aux->ListaDeOrganosADonar(donante_aux);
 	
 	this->AgregarPaciente(paciente, 1);
-	cListaDonantes->setter_ca();
+	
 }
 
 void cINCUCAI::EstudiosYBusquedaParaTrasplante(cPaciente* paciente, string patente) {
@@ -79,8 +79,8 @@ void cINCUCAI::AgregarPaciente(cPaciente* paciente, int m)
 					chequeo++;//contamos 1
 			}
 
-			if (cListaReceptores->lista[ca_receptores] == NULL && chequeo==0) //solo va a entrar el que no este repetido 
-				cListaReceptores->lista[ca_receptores] = receptor_aux;
+			if (cListaReceptores->lista[ca_receptores] == NULL && chequeo == 0) //solo va a entrar el que no este repetido 
+				cListaReceptores->operator+(receptor_aux);
 		}
 		return; 
 
@@ -104,12 +104,10 @@ void cINCUCAI::AgregarPaciente(cPaciente* paciente, int m)
 					chequeo++;//contamos 1
 			}
 			if (cListaDonantes->lista[ca_donantes] == NULL)
-				cListaDonantes->lista[ca_donantes] = donante_aux;
+				cListaDonantes->operator+(donante_aux);
 		}
 		return;
 	}
-	else
-		throw new exception("\nNo se pudo agregar a ninguna de las dos listas (Donantes y Receptores)");
 	
 }
 
@@ -142,7 +140,7 @@ cLista<cReceptor>* cINCUCAI::BuscaPosiblesReceptores(cDonante* donante)
 	if (p == 0)
 		return NULL;
 
-	sublista_aux = sublista_aux->Resize(sublista_aux, p);
+	//sublista_aux = sublista_aux->Resize(sublista_aux, p);
 	return sublista_aux;
 	
 }
@@ -179,7 +177,7 @@ cLista<cReceptor>* cINCUCAI::ReceptoresPorOrgano(eOrgano _organo)
 	}
 
 	OrdenarLista();
-	aux = aux->Resize(aux, aux->get_cant_actual());
+	//aux = aux->Resize(aux, aux->get_cant_actual());
 	return aux;
 }
 
@@ -205,7 +203,7 @@ void cINCUCAI::OrdenarLista()
 		}
 	}
 
-	aux_prioridad = aux_prioridad->Resize(aux_prioridad, p);
+	//aux_prioridad = aux_prioridad->Resize(aux_prioridad, p);
 	OrdenamientoPorFecha(aux_prioridad, p);
 
 	k = 0;
@@ -219,7 +217,7 @@ void cINCUCAI::OrdenarLista()
 		}
 	}
 	if (k != 0) {
-		aux_sinprioridad = aux_sinprioridad->Resize(aux_sinprioridad, k);
+		//aux_sinprioridad = aux_sinprioridad->Resize(aux_sinprioridad, k);
 
 		OrdenamientoPorFecha(aux_sinprioridad, k);
 
@@ -368,11 +366,107 @@ void cINCUCAI::Transporte(cVehiculo* vehiculo) {
 	}
 
 
+
+}
+/// <summary>
+/// en esta funcion chequeamos los organos donados en esa provincia (sin importar en que provincia esta el receptor)
+/// </summary>
+/// <param name="centrosalud"></param>
+/// <param name="donante"></param>
+/// <param name="receptor"></param>
+/// <returns></returns>
+void cINCUCAI::ListadeDonacionesPorProvincias( int mes) {
+	
+
+	string provincia;
+	string prov_donante;
+	int mes_donante;
+	int cont = 0;
+
+	int n = this->cListaDonantes->get_cant_actual();
+	for (int j = 0; j < 23; j++) {
+
+		provincia = this->switchProvincias(j);
+		cont = 0;
+		for (int i = 0; i < n; i++) {
+
+			prov_donante = this->cListaDonantes->lista[i]->CentroSaludd->get_provincia();
+			mes_donante = this->cListaDonantes->lista[i]->FechaHoraApertura->get_mes();
+
+			if (prov_donante == provincia && mes_donante == mes)
+				cont++;
+
+		}
+		cout << endl << "La cantidad de donanciones hechas  en ";
+		cout << provincia << " en el mes " << mes << " fueron " << cont << endl;
+	}
+
+
+
+}
+
+
+string cINCUCAI::switchProvincias(int n) {
+
+	switch (n) {
+	case BuenosAires:return "BuenosAires";
+
+	case EntreRios:return "EntreRios";
+
+	case Misiones:return "Misiones";
+
+	case Chaco:return "Chaco";
+
+	case LaPampa:return "LaPampa";
+
+	case Cordoba:return "Cordoba";
+
+	case SantaFe:return "SantaFe";
+
+	case TierraDelFuego:return "TierraDelFuego";
+
+	case Mendoza:return "Mendoza";
+
+	case Salta:return "Salta";
+
+	case Tucuman:return "Tucuman";
+
+	case Corrientes:return "Corrientes";
+
+	case Jujuy:return "Jujuy";
+
+	case RioNegro:return "RioNegro";
+
+	case Neuquen:return "Neuquen";
+
+	case SanLuis:return "SanLuis";
+
+	case SanJuan:return "SanJuan";
+
+	case Chubut:return "Chubut";
+
+	case SantaCruz:return "SantaCruz";
+
+	case Catamarca:return "Catamarca";
+
+	case SantiagoDelEstero:return "SantiagoDelEstero";
+
+	case LaRioja:return "LaRioja";
+
+	case Formosa:return "Formosa";
+
+	}
+}
+
+void cINCUCAI::Imprimir() {
+	cout << *cListaDonantes;
+	cout << *cListaReceptores;
+	
 }
 
 cINCUCAI::~cINCUCAI()
 {
-	/**/if (cListaDonantes != NULL)
+	if (cListaDonantes != NULL)
 		delete cListaDonantes;
 
 	if (cListaReceptores != NULL)

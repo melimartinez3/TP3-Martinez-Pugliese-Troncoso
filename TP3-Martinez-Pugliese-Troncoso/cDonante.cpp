@@ -82,11 +82,6 @@ string cDonante::to_string() {
 	return dato;
 }
 
-void cDonante::Imprimir() {
-	string dato = to_string();
-	cout << dato;
-}
-
 
 cDonante::~cDonante() {
 	
