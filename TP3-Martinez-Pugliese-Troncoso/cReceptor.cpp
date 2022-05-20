@@ -1,6 +1,6 @@
 #include "cReceptor.h"
 
-
+//constructor
 cReceptor::cReceptor(eOrgano _organo, bool _prioridad, bool _estado, string _patologia, string _nombre, string _fechanac, char _sexo, string _telefono, string _tiposangre) :cPaciente(_nombre, _fechanac, _sexo, _telefono, _tiposangre) {
 	this->Organo = _organo;
 	this->FechaAgregado = NULL;
@@ -26,7 +26,12 @@ void cReceptor::AsignacionFechaLLegda(cReceptor* receptor, int dia, int mes, int
 		receptor->FechaAgregado = fecha_hora_llegada; //se lo asignamos al atributo del receptor
 
 }
-
+/// <summary>
+/// determinamos la prioridad del receptor (si es absoluta o no)
+/// </summary>
+/// <param name="receptor"></param>
+/// <param name="listadereceptores"></param>
+/// <returns></returns>
 string cReceptor::PrioridadDelReceptor(cReceptor* receptor, cLista<cReceptor>* listadereceptores) {
 
 	int n = listadereceptores->get_cant_actual();
@@ -98,5 +103,5 @@ string cReceptor::to_string() {
 	return dato;
 }
 
-
+//destructor
 cReceptor::~cReceptor() {};

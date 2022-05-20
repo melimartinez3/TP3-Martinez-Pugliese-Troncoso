@@ -4,7 +4,10 @@
 
 #define TAM 50
 
+//PARA PODER CORRERLO SIN QUE TIRE ERROR LA LIBRERIA CTIME HAY QUE IR A PROPIEDADES DEL ARCHIVO->C/C++->PREPROCESSOR->PROCESSORSDEFINITIONS Y AGREGAR CRT_SECURE_NO_WARNINGS
+
 int main() {
+	//creamos la semilla para el rand
 	srand(time(NULL));
 	
 	// declaramos las variables dinamicas
@@ -27,8 +30,6 @@ int main() {
 	cCentroSalud* centrodesalud1 = new cCentroSalud("centrito4", "Juramento 2556", "Buenos Aires","Misiones" , "46583226");
 	cCentroSalud* centrodesalud2 = new cCentroSalud("centrito5", "Cabildo 2856", "Buenos Aires", "BuenosAires", "46583226");
 
-	
-
 	cINCUCAI* incucai = new cINCUCAI();
 
 	//obtenemos la fecha y hora de falleciicmiento
@@ -38,12 +39,13 @@ int main() {
 	//obtenemos la fecha y hora de apertura del cuerpo
 	donante1->FechaHoraApertura = donante1->FechaHoraApertura->ObtenerFechayHora(14, 5, 2022);
 	donante2->FechaHoraApertura = donante1->FechaHoraApertura->ObtenerFechayHora(14, 5, 2022);
+
 	// le asignamos al receptor la fecha en la que ingreso al centro de salud
 	receptor1->AsignacionFechaLLegda(receptor1, 14, 5, 2022);
 	receptor2->AsignacionFechaLLegda(receptor2, 3, 5, 2022);
 
 	
-	// asignamos y desasignamos el centro de salud del paciente 1
+	// asignamos a los centros de salud los pacientes
 	bool ok;
 	try {
 		ok = paciente1->AsignacionCentroDeSalud(paciente1, centrodesalud1);
@@ -80,8 +82,7 @@ int main() {
 	incucai->RecibirPaciente(paciente3, "ABC907");
 	incucai->RecibirPaciente(paciente4, "AKL996");
 	
-	// imprimimos la informacion de los donantes, receptores y cenros de salud
-	
+	// imprimimos la informacion de los donantes, receptores y centros de salud
 	centrodesalud1->Imprimir();
 	centrodesalud2->Imprimir();
 	incucai->Imprimir();
@@ -99,7 +100,7 @@ int main() {
 	paciente2->DesasignacionCentroDeSalud(paciente2);
 
 	
-	/*
+	/* no es necesario borrarlos ya que desde incucai se acceden a todos los deletes de las clases
 	if (paciente1 != NULL)
 	 delete paciente1;
 	if (paciente2 != NULL)

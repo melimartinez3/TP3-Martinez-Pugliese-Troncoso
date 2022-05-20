@@ -14,7 +14,14 @@ cCentroSalud::cCentroSalud(string _nombre, string _direcc, string _partido, stri
 	lista_helicopteros = NULL;
 
 }
-
+/// <summary>
+/// asignamos al organo un vehiculo para que sea trasladado de un centro a otro
+/// </summary>
+/// <param name="donante"></param>
+/// <param name="organo"></param>
+/// <param name="receptor"></param>
+/// <param name="patente"></param>
+/// <returns></returns>
 bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, cReceptor* receptor, string patente) {
 
 	int pos = 0;
@@ -63,7 +70,12 @@ bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, cRecept
 	}
 	return false;
 }
-
+ /// <summary>
+ /// una vez que llega a destino desasignamos el vehiculo del organo
+ /// </summary>
+ /// <param name="donante"></param>
+ /// <param name="organo"></param>
+ /// <returns></returns>
  bool cCentroSalud::DesasignacionVehiculo(cDonante* donante, eOrgano organo) {
 
 	int n = donante->listadeorganos->get_cant_actual();
@@ -77,7 +89,12 @@ bool cCentroSalud::AsignacionVehiculo(cDonante* donante, eOrgano organo, cRecept
 	return false;
 }
 
-
+/// <summary>
+/// calculamos la distancia entre los centro de salud y determinamos en que vehiculo viaja
+/// </summary>
+/// <param name="donante"></param>
+/// <param name="receptor"></param>
+/// <returns></returns>
 eVehiculos cCentroSalud::CalculoDistancia(cDonante* donante, cReceptor* receptor) {
 	
 	eVehiculos vehiculo;
@@ -97,7 +114,13 @@ eVehiculos cCentroSalud::CalculoDistancia(cDonante* donante, cReceptor* receptor
 	return vehiculo;
 }
 
-
+/// <summary>
+/// se realiza el trasplante del organo
+/// </summary>
+/// <param name="organo"></param>
+/// <param name="incucai"></param>
+/// <param name="receptor"></param>
+/// <param name="donante"></param>
 void cCentroSalud::RealizacionDelTrasplante(cOrgano* organo, cINCUCAI* incucai,cReceptor* receptor, cDonante* donante) {
 
 	time_t hora_de_extraccion=organo->fechayhora_extraccion->get_hora();
@@ -127,7 +150,12 @@ void cCentroSalud::RealizacionDelTrasplante(cOrgano* organo, cINCUCAI* incucai,c
 	bool vehiculo = DesasignacionVehiculo(donante, organo_aux);
 
 }
-
+/// <summary>
+/// devolvemos una lista de receptores de un centro de salud
+/// </summary>
+/// <param name="centro"></param>
+/// <param name="incucai"></param>
+/// <returns></returns>
 cLista<cReceptor>* cCentroSalud::ReceptoresPorCentroSalud(cCentroSalud* centro, cINCUCAI* incucai)
 {
 	int n = incucai->cListaReceptores->get_cant_actual();
@@ -154,6 +182,7 @@ string cCentroSalud::to_string() {
 	dato = "\n Nombre: " + Nombre + " Direccion: " + Direccion + " Partido: " + Partido + " Provincia: " + Provincia + " Telefono: " + Telefono;
 	return dato;
 }
+
 void cCentroSalud::Imprimir() {
 	string dato = to_string();
 	cout << dato;

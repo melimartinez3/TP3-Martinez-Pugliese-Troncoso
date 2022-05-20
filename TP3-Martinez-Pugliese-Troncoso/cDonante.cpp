@@ -1,6 +1,6 @@
 #include "cDonante.h"
 
-
+//constructor
 cDonante::cDonante(string _nombre, string _fechanac, char _sexo, string _telefono, string _tiposangre) :cPaciente(_nombre, _fechanac, _sexo, _telefono, _tiposangre)
 {
 	FechaHoraFallecimiento = NULL;
@@ -82,7 +82,7 @@ string cDonante::to_string() {
 	return dato;
 }
 
-
+//destructor
 cDonante::~cDonante() {
 	
 	if(FechaHoraFallecimiento != NULL)

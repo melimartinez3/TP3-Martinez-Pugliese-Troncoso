@@ -38,5 +38,5 @@ void cPaciente::DesasignacionCentroDeSalud(cPaciente* paciente) {
 
 // destructor de cPaciente
 cPaciente::~cPaciente() {
-	//el puntero de centro de salud se elimina en incucai
+	//el puntero de centro de salud se elimina en el main
 };

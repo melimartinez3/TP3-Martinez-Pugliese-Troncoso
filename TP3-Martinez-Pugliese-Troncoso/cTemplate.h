@@ -29,8 +29,6 @@ public:
 	friend ostream& operator<< <>(ostream& out, const cLista<T>&);
 	T* operator[](string busqueda);
 
-
-
 	~cLista();
 
 	void setter_ca();// setter de cant actual +1
@@ -39,17 +37,17 @@ public:
 		this->CantActual = this->CantActual - 1;
 	}
 
+	void set_CantActual(int cantactual) {
+		this->CantActual = cantactual;
+	}
+
 	int get_cant_actual() {
 		return this->CantActual;
 	}
 	int get_tamanio_total() {
 		return this->TamTotal;
 	}
-
-	void set_CantActual(int cantactual) {
-		this->CantActual = cantactual;
-	}
-
+	
 };
 
 template <class T>
@@ -68,9 +66,6 @@ cLista<T>::cLista(int _tamtotal) {
 		lista[i] = NULL;
 	}
 }
-
-
-
 
 /// <summary>
 /// Agregamos a la lista un nuevo elemento
