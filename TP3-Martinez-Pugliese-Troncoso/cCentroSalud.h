@@ -29,7 +29,6 @@ private:
 public:
 	friend class cReceptor;
 	friend class cDonante;
-	
 
 	cCentroSalud(string _nombre, string _direcc, string _partido, string _provincia, string _telefono);
 	bool AsignacionVehiculo(cDonante* donante, eOrgano organo, cReceptor* receptor, string patente);
