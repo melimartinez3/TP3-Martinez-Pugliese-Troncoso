@@ -84,8 +84,7 @@ cLista<T>::cLista(int _tamtotal) {
 		if (CantActual < TamTotal) {// verificamos que la cantidad actual sea menor a la maxima
 			lista[CantActual++] = nuevo;// lo agregamos a la lista
 		}
-		else
-			throw new exception("\nNo se puede agregar a la lista");
+		
 	}
 
 	/// <summary>
@@ -187,7 +186,8 @@ cLista<T>::cLista(int _tamtotal) {
 
 	}
 
-	template <class T>
+	
+	/*template <class T>
 	cLista<T>* cLista<T>::Resize(cLista<T>* array, int n)
 	{
 		cLista<T>* nuevo = new cLista<T>(n);
@@ -196,7 +196,7 @@ cLista<T>::cLista(int _tamtotal) {
 			nuevo[i] = array[i];
 		}
 		return nuevo;
-	}
+	}*/
 
 
 
@@ -216,12 +216,12 @@ cLista<T>::cLista(int _tamtotal) {
 	// destructor de la lista template
 	template <class T>
 	cLista<T>::~cLista() {
-		/*if (lista != NULL) {
+		if (lista != NULL) {
 			for (int i = 0; i < CantActual; i++) {
 				if (lista[i] != NULL) {
 					delete lista[i];
 				}
 			}
 			delete[] lista;
-		}*/
+		}
 	}

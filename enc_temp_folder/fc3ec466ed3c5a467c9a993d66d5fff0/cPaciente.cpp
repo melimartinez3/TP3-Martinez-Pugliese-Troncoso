@@ -41,7 +41,7 @@ cPaciente::~cPaciente() {
 	
 	if (CentroSaludd != NULL)
 	{
-		delete CentroSaludd;
+		//delete CentroSaludd;
 		CentroSaludd = NULL;
 	}
 };

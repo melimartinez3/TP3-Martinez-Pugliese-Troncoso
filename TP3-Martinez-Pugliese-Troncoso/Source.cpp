@@ -24,8 +24,8 @@ int main() {
 	cReceptor* receptor2 = new cReceptor(Corazon, true, false, "Rinionitis", "Paola Argento", "22 / 10 / 2000", 'F', "1194967654", "A+");
 	paciente4 = receptor2;
 
-	cCentroSalud* centrodesalud1 = new cCentroSalud("centrito4", "Juramento 2556", "Buenos Aires", "Buenos Aires", "46583226");
-	cCentroSalud* centrodesalud2 = new cCentroSalud("centrito5", "Cabildo 2856", "Buenos Aires", "Buenos Aires", "46583226");
+	cCentroSalud* centrodesalud1 = new cCentroSalud("centrito4", "Juramento 2556", "Buenos Aires","Misiones" , "46583226");
+	cCentroSalud* centrodesalud2 = new cCentroSalud("centrito5", "Cabildo 2856", "Buenos Aires", "BuenosAires", "46583226");
 
 	
 
@@ -52,7 +52,7 @@ int main() {
 	if (!ok) {
 		cout << "El paciente ya tenia un centro asignado" << endl;
 	}
-	ok = paciente3->AsignacionCentroDeSalud(paciente3, centrodesalud1);
+	ok = paciente3->AsignacionCentroDeSalud(paciente3, centrodesalud2);
 	if (!ok) {
 		cout << "El paciente ya tenia un centro asignado" << endl;
 	}
@@ -77,18 +77,21 @@ int main() {
 
 	//hacer el trasplante 
 	incucai->EstudiosYBusquedaParaTrasplante(paciente1, "AEI789");
-	//incucai->EstudiosYBusquedaParaTrasplante(paciente3, "ABC907");
+	incucai->EstudiosYBusquedaParaTrasplante(paciente3, "ABC907");
 	
 	//calculamos la conatidad de donaciones en el mes
-	int cant_donaciones;
-	cant_donaciones = centrodesalud2->ListadeDonacionesPorProvincias(incucai, 5);
-	cout << "Cantidad de Donaciones en el mes fueron: " << cant_donaciones << endl;
+	incucai->ListadeDonacionesPorProvincias(5);
+
 	
 	//desasignamos los centro de salud de cada paciente
 	paciente1->DesasignacionCentroDeSalud(paciente1);
 	paciente2->DesasignacionCentroDeSalud(paciente2);
 
 	
+	if (centrodesalud1 != NULL)
+		delete centrodesalud1;
+	if (centrodesalud2 != NULL)
+		delete centrodesalud2;
 	if (paciente1 != NULL)
 	 delete paciente1;
 	if (paciente2 != NULL)
@@ -97,10 +100,8 @@ int main() {
 	 delete paciente3;
 	if (paciente4 != NULL)
 	 delete paciente4;
-	if (centrodesalud1 != NULL)
-		delete centrodesalud1;
-	if (centrodesalud2 != NULL)
-		delete centrodesalud2;
 	if (incucai != NULL)
 	 delete incucai;
+	
+	
 }
